@@ -5,12 +5,17 @@
 from vexcode import *
 
 
-def main():
-    drivetrain.drive(FORWARD)
-    wait(1, SECONDS)
-    drivetrain.drive(REVERSE)
-    wait(1, SECONDS)
-    drivetrain.stop()
+class VexRobot:
+    def main(self):
+        drivetrain.drive(FORWARD)
+        wait(1, SECONDS)
+        drivetrain.drive(REVERSE)
+        wait(1, SECONDS)
+        drivetrain.stop()
+
+        stop_project()
 
 
-vr_thread(main())
+VEX_ROBOT = VexRobot()
+
+vr_thread(VEX_ROBOT.main())

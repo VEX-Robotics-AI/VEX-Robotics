@@ -6,22 +6,27 @@
 from vexcode import *
 
 
-def main():
-    pen.move(DOWN)
+class VexRobot:
+    def main(self):
+        pen.move(DOWN)
 
-    while True:
-        drivetrain.turn_for(RIGHT, random.randint((10), 300), DEGREES)
+        while True:
+            drivetrain.turn_for(RIGHT, random.randint((10), 300), DEGREES)
 
-        # If the Drivetrain heading is greater than 180 degrees it will draw in red
-        # Otherwise it will draw in green
-        if drivetrain.heading(DEGREES) > 180:
-            pen.set_pen_color(RED)
-        else:
-            pen.set_pen_color(GREEN)
-        drivetrain.drive_for(FORWARD, 200, MM)
+            # If the Drivetrain heading is greater than 180 degrees it will draw in red
+            # Otherwise it will draw in green
+            if drivetrain.heading(DEGREES) > 180:
+                pen.set_pen_color(RED)
+            else:
+                pen.set_pen_color(GREEN)
+            drivetrain.drive_for(FORWARD, 200, MM)
 
-        # Brief wait needed at the end of every loop for optimal robot performance
-        wait(5, MSEC)
+            # Brief wait needed at the end of every loop for optimal robot performance
+            wait(5, MSEC)
+
+        stop_project()
 
 
-vr_thread(main())
+VEX_ROBOT = VexRobot()
+
+vr_thread(VEX_ROBOT.main())

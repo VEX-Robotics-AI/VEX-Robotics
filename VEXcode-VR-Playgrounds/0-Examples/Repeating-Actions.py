@@ -6,13 +6,18 @@
 from vexcode import *
 
 
-def main():
-    for repeat_count in range(4):
-        drivetrain.drive_for(FORWARD, 200, MM)
-        drivetrain.turn_for(RIGHT, 90, DEGREES)
-        
-        # Brief wait needed at the end of loops for optimal performance
-        wait(5, MSEC)
+class VexRobot:
+    def main(self):
+        for repeat_count in range(4):
+            drivetrain.drive_for(FORWARD, 200, MM)
+            drivetrain.turn_for(RIGHT, 90, DEGREES)
+            
+            # Brief wait needed at the end of loops for optimal performance
+            wait(5, MSEC)
+
+        stop_project()
 
 
-vr_thread(main())
+VEX_ROBOT = VexRobot()
+
+vr_thread(VEX_ROBOT.main())
