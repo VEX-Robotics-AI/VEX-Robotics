@@ -1,8 +1,8 @@
 # VEXcode VR Playgrounds
 
-VEXcode VR Playgrounds
-- https://education.vex.com/vr
-- https://vr.vex.com
+[Activities & Resources](https://education.vex.com/vr)
+
+[Online Programming Interface](https://vr.vex.com)
 
 2020-05-29 Blog: [Teaching Python with VEXcode VR](https://blog.vex.com/2020/05/29/teaching-python-with-vexcode-vr)
 
