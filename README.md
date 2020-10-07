@@ -2,6 +2,5 @@
 
 [VEX Education STEM Labs](https://education.vex.com)
 
-VEXcode VR Playgrounds
-- https://education.vex.com/vr
-- https://vr.vex.com
+Forum Q&As:
+- [SuperKit vs. Retail version](https://www.vexforum.com/t/superkit-vs-retail-version/2528)
