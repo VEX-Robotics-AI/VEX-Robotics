@@ -1,6 +1,9 @@
 # VEX Robotics
 
 
+[Building Instructions](https://www.vexrobotics.com/vex-downloads/builds)
+
+
 [VEXcode Software Downloads](https://www.vexrobotics.com/vexcode-download)
 
 - [VEXcode VR](https://vr.vex.com)
