@@ -19,3 +19,5 @@
 
 Forum Q&As:
 - [SuperKit vs. Retail version](https://www.vexforum.com/t/superkit-vs-retail-version/2528)
+
+Resellers: [US](https://www.vexrobotics.com/how-to-order) | [International](https://kb.vex.com/hc/en-us/articles/360044952972-International-Reseller-Info)
