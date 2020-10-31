@@ -21,3 +21,11 @@ Forum Q&As:
 - [SuperKit vs. Retail version](https://www.vexforum.com/t/superkit-vs-retail-version/2528)
 
 Resellers: [US](https://www.vexrobotics.com/how-to-order) | [International](https://kb.vex.com/hc/en-us/articles/360044952972-International-Reseller-Info)
+
+
+## Robot Mesh
+
+[Robot Mesh Connection Chrome Extension](https://chrome.google.com/webstore/detail/robot-mesh-connect-extens/kneikgicddfadmnpnjhbfiaoomchignh/related)
+
+Robot Mesh Connect: [Mac OSX](https://www.robotmesh.com/downloads/RobotMeshConnect.dmg)
+- CURRENTLY INCOMPATIBLE WITH LATEST MAC OSX!
