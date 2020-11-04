@@ -30,5 +30,10 @@ Resellers: [US](https://www.vexrobotics.com/how-to-order) | [International](http
 
 [Robot Mesh Connection Chrome Extension](https://chrome.google.com/webstore/detail/robot-mesh-connect-extens/kneikgicddfadmnpnjhbfiaoomchignh/related)
 
-Robot Mesh Connect: [Mac OSX](https://www.robotmesh.com/downloads/RobotMeshConnect.dmg)
-- CURRENTLY INCOMPATIBLE WITH LATEST MAC OSX!
+
+Robot Mesh Connect:
+
+- [Mac](https://www.robotmesh.com/downloads/RobotMeshConnect.dmg)
+  - CURRENTLY INCOMPATIBLE WITH LATEST MAC CATALINA
+
+- [PC](https://www.robotmesh.com/downloads/RobotMeshConnect.msi)
