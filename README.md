@@ -4,6 +4,9 @@
 [Building Instructions](https://www.vexrobotics.com/vex-downloads/builds)
 
 
+[VEXos Firmware Downloads](https://www.vexrobotics.com/iq/products/vexos): [Mac](https://link.vex.com/vexiq/downloads/vexos-utility-setup-mac) | [PC](https://link.vex.com/vexiq/downloads/vexos-utility-setup)
+
+
 [VEXcode Software Downloads](https://www.vexrobotics.com/vexcode-download)
 
 - [VEXcode VR](https://vr.vex.com)
