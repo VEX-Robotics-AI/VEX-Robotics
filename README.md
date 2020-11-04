@@ -34,6 +34,6 @@ Resellers: [US](https://www.vexrobotics.com/how-to-order) | [International](http
 Robot Mesh Connect:
 
 - [Mac](https://www.robotmesh.com/downloads/RobotMeshConnect.dmg)
-  - CURRENTLY INCOMPATIBLE WITH LATEST MAC CATALINA
+  - Follow [this guide](https://forum.robotmesh.com/t/mac-os-10-15-7-support/327) to install Robot Mesh Connect on MacOS Catalina
 
 - [PC](https://www.robotmesh.com/downloads/RobotMeshConnect.msi)
