@@ -7,6 +7,10 @@
 [VEXos Firmware Downloads](https://www.vexrobotics.com/iq/products/vexos): [Mac](https://link.vex.com/vexiq/downloads/vexos-utility-setup-mac) | [PC](https://link.vex.com/vexiq/downloads/vexos-utility-setup)
 
 
+[VEXcode Overview](https://www.vexrobotics.com/vexcode)
+- code.vex.com
+
+
 [VEXcode Software Downloads](https://www.vexrobotics.com/vexcode-download)
 
 - [VEXcode VR](https://vr.vex.com)
@@ -18,6 +22,9 @@
 
 
 [VEX Education STEM Labs](https://education.vex.com)
+
+
+[VEX Certifications](https://certifications.vex.com)
 
 
 Forum Q&As:
