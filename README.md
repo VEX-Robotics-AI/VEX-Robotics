@@ -27,6 +27,9 @@
 [VEX Certifications](https://certifications.vex.com)
 
 
+[YouTube Channel](https://www.youtube.com/c/VEXRoboticsInc)
+
+
 Forum Q&As:
 - [SuperKit vs. Retail version](https://www.vexforum.com/t/superkit-vs-retail-version/2528)
 
