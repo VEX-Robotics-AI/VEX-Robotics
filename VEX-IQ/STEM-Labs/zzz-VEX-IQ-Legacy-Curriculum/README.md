@@ -1,5 +1,7 @@
 # [VEX IQ Legacy Curriculum](https://education.vex.com/iq/legacy)
 
+Our legacy 12 Unit modular curriculum that serves as a companion to the VEX IQ platform.
+
 > This page contains legacy materials and lessons that can be used with both your VEX IQ Robot and VEX IQ STEM Labs. The materials provided here are for you to use with your classroom and/or competition team for reference only and may be outdated now or in the future.
 
 
