@@ -7,6 +7,10 @@
 [VEXos Firmware Downloads](https://www.vexrobotics.com/iq/products/vexos): [Mac](https://link.vex.com/vexiq/downloads/vexos-utility-setup-mac) | [PC](https://link.vex.com/vexiq/downloads/vexos-utility-setup)
 
 
+[VEXcode Overview](https://www.vexrobotics.com/vexcode)
+- code.vex.com
+
+
 [VEXcode Software Downloads](https://www.vexrobotics.com/vexcode-download)
 
 - [VEXcode VR](https://vr.vex.com)
@@ -18,6 +22,12 @@
 
 
 [VEX Education STEM Labs](https://education.vex.com)
+
+
+[VEX Certifications](https://certifications.vex.com)
+
+
+[YouTube Channel](https://www.youtube.com/c/VEXRoboticsInc)
 
 
 Forum Q&As:
@@ -34,6 +44,6 @@ Resellers: [US](https://www.vexrobotics.com/how-to-order) | [International](http
 Robot Mesh Connect:
 
 - [Mac](https://www.robotmesh.com/downloads/RobotMeshConnect.dmg)
-  - CURRENTLY INCOMPATIBLE WITH LATEST MAC CATALINA
+  - Follow [this guide](https://forum.robotmesh.com/t/mac-os-10-15-7-support/327) to install Robot Mesh Connect on MacOS Catalina
 
 - [PC](https://www.robotmesh.com/downloads/RobotMeshConnect.msi)
