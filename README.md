@@ -31,6 +31,7 @@
 
 
 [YouTube Channel](https://www.youtube.com/c/VEXRoboticsInc)
+- also https://www.youtube.com/channel/UC7jrVEiBjPrOM7-RZSAoebg
 
 
 Forum Q&As:
