@@ -27,6 +27,9 @@
 [VEX Certifications](https://certifications.vex.com)
 
 
+[VEX Knowledge Base](https://kb.vex.com)
+
+
 [YouTube Channel](https://www.youtube.com/c/VEXRoboticsInc)
 
 
