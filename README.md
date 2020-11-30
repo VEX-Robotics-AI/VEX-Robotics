@@ -40,6 +40,20 @@ Forum Q&As:
 Resellers: [US](https://www.vexrobotics.com/how-to-order) | [International](https://kb.vex.com/hc/en-us/articles/360044952972-International-Reseller-Info)
 
 
+## [Robotics Education & Competitions (REC) Foundation](https://www.roboticseducation.org)
+
+[Fundraising Resources](https://www.roboticseducation.org/fundraising-resources)
+
+[Grants](https://www.roboticseducation.org/grants)
+
+[VEX IQ Challenge (VIQC)](https://www.roboticseducation.org/vex-iq-challenge)
+
+
+### [Robot Events](https://www.robotevents.com)
+- [Challenges](https://challenges.robotevents.com)
+- [VEX IQ Challenge (VIQC)](https://www.robotevents.com/robot-competitions/vex-iq-challenge)
+
+
 ## Robot Mesh
 
 [Robot Mesh Connection Chrome Extension](https://chrome.google.com/webstore/detail/robot-mesh-connect-extens/kneikgicddfadmnpnjhbfiaoomchignh/related)
