@@ -31,7 +31,6 @@
 
 
 [YouTube Channel](https://www.youtube.com/c/VEXRoboticsInc)
-- also https://www.youtube.com/channel/UC7jrVEiBjPrOM7-RZSAoebg
 
 
 Forum Q&As:
@@ -65,3 +64,7 @@ Robot Mesh Connect:
   - Follow [this guide](https://forum.robotmesh.com/t/mac-os-10-15-7-support/327) to install Robot Mesh Connect on MacOS Catalina
 
 - [PC](https://www.robotmesh.com/downloads/RobotMeshConnect.msi)
+
+
+[YouTube Channel](https://www.youtube.com/c/RobotMesh)
+- ["Python like a Pro!" Playlist](https://www.youtube.com/playlist?list=PLQu7Tvt7G2Lo_Vmya4XgkV-rgX6bgGPy_)
