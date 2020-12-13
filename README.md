@@ -66,5 +66,8 @@ Robot Mesh Connect:
 - [PC](https://www.robotmesh.com/downloads/RobotMeshConnect.msi)
 
 
+[Robot Mesh Studio Documentation](https://docs.robotmesh.com)
+
+
 [YouTube Channel](https://www.youtube.com/c/RobotMesh)
 - ["Python like a Pro!" Playlist](https://www.youtube.com/playlist?list=PLQu7Tvt7G2Lo_Vmya4XgkV-rgX6bgGPy_)
