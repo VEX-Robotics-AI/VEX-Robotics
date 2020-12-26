@@ -4,68 +4,139 @@ from vexiq import \
     ColorSensor, \
     DistanceSensor, \
     Gyro, \
+    Joystick, \
     Motor, \
     TouchLed, \
     UNIT_CM
 
+from sys import run_in_thread
 
-class Clawbot:
-    def __init__(
-            self,
-            left_motor_port=1, right_motor_port=6,
-            wheel_travel_mm=200, track_mm=176,
-            touch_led_port=2,
-            color_sensor_port=3,
-            gyro_sensor_port=4,
-            distance_sensor_port=7,
-            bumper_switch_port=8,
-            arm_motor_port=10,
-            claw_motor_port=11):
-        self.drivetrain = \
-            Drivetrain(
-                Motor(
-                    left_motor_port,   # port
-                    False   # switch_polarity
-                ),   # left_motor
-                Motor(
-                    right_motor_port,   # port
-                    True   # switch_polarity
-                ),   # right_motor
-                wheel_travel_mm,   # wheel_travel_mm
-                track_mm   # track_mm
-            )
 
-        self.touch_led = TouchLed(touch_led_port)
+# drive base configs
+LEFT_MOTOR = \
+    Motor(
+        1,   # port
+        False   # switch_polarity
+    )
+RIGHT_MOTOR = \
+    Motor(
+        6,   # port
+        True   # switch_polarity
+    )
+DRIVETRAIN = \
+    Drivetrain(
+        LEFT_MOTOR,   # left_motor
+        RIGHT_MOTOR,   # right_motor
+        200,   # wheel_travel_mm
+        176   # track_mm
+    )
 
-        self.color_sensor = \
-            ColorSensor(
-                color_sensor_port,   # index
-                False,   # is_grayscale
-                700   # proximity
-            )
+# sensor configs
+TOUCH_LED = TouchLed(2)
+COLOR_SENSOR = \
+    ColorSensor(
+        3,   # index
+        False,   # is_grayscale
+        700   # proximity
+    )
+GYRO_SENSOR = \
+    Gyro(
+        4,   # index
+        True   # calibrate
+    )
+DISTANCE_SENSOR = \
+    DistanceSensor(
+        7,   # port
+        UNIT_CM   # unit
+    )
+BUMPER_SWITCH = Bumper(8)
 
-        self.gyro_sensor = \
-            Gyro(
-                gyro_sensor_port,   # index
-                True   # calibrate
-            )
+# actuator configs
+ARM_MOTOR = \
+    Motor(
+        10,   # index
+        False   # reverse
+    )
+ARM_MOTOR_VELOCITY = 30   # %
 
-        self.distance_sensor = \
-            DistanceSensor(
-                distance_sensor_port,   # port
-                UNIT_CM   # unit
-            )
+CLAW_MOTOR = \
+    Motor(
+        11,   # index
+        False   # reverse
+    )
+CLAW_MOTOR_VELOCITY = 60   # %
 
-        self.bumper_switch = Bumper(bumper_switch_port)
+# controller configs
+CONTROLLER = Joystick()
+CONTROLLER.set_deadband(3)
 
-        self.arm_motor = \
-            Motor(
-                arm_motor_port,   # index
-                False   # reverse
-            )
 
-        self.claw_motor = \
-            Motor(
-                claw_motor_port,   # index
-                False   # reverse
-            )
+def drive_once_by_controller():
+    LEFT_MOTOR.run(
+        CONTROLLER.axisA(),   # power
+        None,   # distance
+        False   # hold
+    )
+    RIGHT_MOTOR.run(
+        CONTROLLER.axisD(),   # power
+        None,   # distance
+        False   # hold
+    )
+
+
+def keep_driving_by_controller():
+    while True:
+        drive_once_by_controller()
+
+
+def lower_or_raise_arm_once_by_controller():
+    if CONTROLLER.bLdown():
+        ARM_MOTOR.run(
+            -ARM_MOTOR_VELOCITY,   # power
+            None,   # distance
+            False   # hold
+        )
+
+    elif CONTROLLER.bLup():
+        ARM_MOTOR.run(
+            ARM_MOTOR_VELOCITY,   # power
+            None,   # distance
+            False   # hold
+        )
+
+    else:
+        ARM_MOTOR.hold()
+
+
+def keep_lowering_or_raising_arm_by_controller():
+    while True:
+        lower_or_raise_arm_once_by_controller()
+
+
+def grab_or_release_object_by_controller():
+    if CONTROLLER.bRdown():
+        CLAW_MOTOR.run(
+            -CLAW_MOTOR_VELOCITY,   # power
+            None,   # distance
+            False   # hold
+        )
+
+    elif CONTROLLER.bRup():
+        CLAW_MOTOR.run(
+            CLAW_MOTOR_VELOCITY,   # power
+            None,   # distance
+            False   # hold
+        )
+
+    else:
+        CLAW_MOTOR.hold()
+
+
+def keep_grabbing_or_releasing_objects_by_controller(self):
+    while True:
+        grab_or_release_object_by_controller()
+
+
+run_in_thread(keep_lowering_or_raising_arm_by_controller)
+run_in_thread(keep_grabbing_or_releasing_objects_by_controller)
+keep_driving_by_controller()
