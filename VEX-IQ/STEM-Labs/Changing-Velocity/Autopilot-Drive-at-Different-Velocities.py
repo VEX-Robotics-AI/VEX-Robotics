@@ -31,7 +31,7 @@ AUTOPILOT.drivetrain.drive_until(
 
 AUTOPILOT.drivetrain.drive_until(
     25,   # power
-    127   # distance_mm (5 inches)
+    -127   # distance_mm (5 inches)
 )
 
 AUTOPILOT.drivetrain.drive_until(

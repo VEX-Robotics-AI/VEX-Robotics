@@ -38,7 +38,7 @@ AUTOPILOT.drivetrain.drive_for(
 )
 
 AUTOPILOT.drivetrain.drive_for(
-    DirectionType.FWD,   # directionType
+    DirectionType.REV,   # directionType
     5,   # distance
     DistanceUnits.IN,   # distanceUnits
     25,   # velocity
