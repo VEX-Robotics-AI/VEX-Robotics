@@ -6,7 +6,8 @@ class Autopilot:
     def __init__(
             self,
             left_motor_port=1, right_motor_port=6,
-            wheel_travel_mm=200, track_mm=176):
+            wheel_travel_mm=200, track_mm=176,
+            touch_led_port=2):
         self.drivetrain = \
             Drivetrain(
                 Motor(
