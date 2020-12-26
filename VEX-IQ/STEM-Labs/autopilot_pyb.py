@@ -1,5 +1,5 @@
 from drivetrain import Drivetrain
-from vex import DistanceUnits, Motor, Ports, Touchled
+from vex import Brain, DistanceUnits, Motor, Ports, Touchled
 
 
 class Autopilot:
@@ -10,6 +10,8 @@ class Autopilot:
             distance_unit=DistanceUnits.MM,
             gear_ratio=1,
             touch_led_port=Ports.PORT2):
+        self.brain = Brain()
+
         self.drivetrain = \
             Drivetrain(
                 Motor(
