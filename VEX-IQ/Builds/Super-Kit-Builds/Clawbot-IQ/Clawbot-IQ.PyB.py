@@ -3,12 +3,15 @@ from vex import \
     Brain, \
     Bumper, \
     Colorsensor, \
+    Controller, \
+    DirectionType, \
     DistanceUnits, \
     Gyro, \
     Motor, \
     Ports, \
     Sonar, \
-    Touchled
+    Touchled, \
+    VelocityUnits
 
 
 class Clawbot:
@@ -24,19 +27,24 @@ class Clawbot:
             distance_sensor_port=Ports.PORT7,
             bumper_switch_port=Ports.PORT8,
             arm_motor_port=Ports.PORT10,
-            claw_motor_port=Ports.PORT11):
+            claw_motor_port=Ports.PORT11,
+            controller_deadband=3):
         self.brain = Brain()
 
+        self.left_motor = \
+            Motor(
+                left_motor_port,   # index
+                False   # reverse
+            )
+        self.right_motor = \
+            Motor(
+                right_motor_port,   # index
+                True   # reverse
+            )
         self.drivetrain = \
             Drivetrain(
-                Motor(
-                    left_motor_port,   # index
-                    False   # reverse
-                ),   # left_motor
-                Motor(
-                    right_motor_port,   # index
-                    True   # reverse
-                ),   # right_motor
+                self.left_motor,   # left_motor
+                self.right_motor,   # right_motor
                 wheel_travel,   # wheel_travel
                 track_width,   # track_width
                 distance_unit,   # distanceUnits
@@ -73,3 +81,27 @@ class Clawbot:
                 claw_motor_port,   # index
                 False   # reverse
             )
+
+        self.controller = Controller()
+        self.controller.set_deadband(controller_deadband)
+
+    def drive_once_by_controller(self):
+        self.left_motor.spin(
+            DirectionType.FWD,   # dir
+            self.controller.axisA.position(),   # velocity
+            VelocityUnits.PCT   # velocityUnit
+        )
+        self.right_motor.spin(
+            DirectionType.FWD,   # dir
+            self.controller.axisD.position(),   # velocity
+            VelocityUnits.PCT   # velocityUnit
+        )
+
+    def keep_driving_by_controller(self):
+        while True:
+            self.drive_once_by_controller()
+
+
+CLAWBOT = Clawbot()
+
+CLAWBOT.keep_driving_by_controller()
