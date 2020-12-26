@@ -6,7 +6,8 @@ from vexiq import \
     Gyro, \
     Motor, \
     TouchLed, \
-    UNIT_CM
+    UNIT_CM, \
+    is_up_button_pressed, is_down_button_pressed
 
 
 class Clawbot:
@@ -69,3 +70,22 @@ class Clawbot:
                 claw_motor_port,   # index
                 False   # reverse
             )
+
+
+CLAWBOT = Clawbot()
+
+while True:
+    if is_up_button_pressed():
+        CLAWBOT.drivetrain.drive(
+            100,   # power
+            None   # distance_mm
+        )
+
+    elif is_down_button_pressed():
+        CLAWBOT.drivetrain.drive(
+            -100,   # power
+            None   # distance_mm
+        )
+
+    else:
+        CLAWBOT.drivetrain.off()
