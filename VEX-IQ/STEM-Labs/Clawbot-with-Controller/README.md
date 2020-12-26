@@ -85,3 +85,8 @@ The following VEX STEM Lab supports students as they are introduced to completin
 - Batteries should be charged for both the Brain and Controller prior to the start of the STEM lab.
 - VEXcode IQ Blocks offers several online tutorials to assist students who may have missed instruction or would like to review.
 - An engineering notebook can be as simple as lined paper within a folder or binder. The notebook shown is a more sophisticated example that is available through VEX.
+
+
+## CODE
+
+Refer to [Clawbot-IQ programs](../..)
