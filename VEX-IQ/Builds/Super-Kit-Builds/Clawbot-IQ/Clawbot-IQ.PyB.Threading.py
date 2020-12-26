@@ -11,6 +11,7 @@ from vex import \
     Motor, \
     Ports, \
     Sonar, \
+    TimeUnits, \
     Touchled, \
     VelocityUnits
 
@@ -69,6 +70,10 @@ CLAW_MOTOR = \
         Ports.PORT11,   # index
         False   # reverse
     )
+CLAW_MOTOR.set_timeout(
+    3,   # time
+    TimeUnits.SEC   # timeUnit
+)
 CLAW_MOTOR_VELOCITY = 60   # %
 
 # controller configs

@@ -11,6 +11,7 @@ from vex import \
     Motor, \
     Ports, \
     Sonar, \
+    TimeUnits, \
     Touchled, \
     VelocityUnits
 
@@ -44,6 +45,7 @@ class Clawbot:
 
     CLAW_MOTOR_PORT = Ports.PORT11
     CLAW_MOTOR_REVERSE_POLARITY = False
+    CLAW_MOTOR_TIMEOUT_SECS = 3
     CLAW_MOTOR_VELOCITY = 60   # %
 
     # controller configs
@@ -102,6 +104,10 @@ class Clawbot:
                 self.CLAW_MOTOR_PORT,   # index
                 self.CLAW_MOTOR_REVERSE_POLARITY   # reverse
             )
+        self.claw_motor.set_timeout(
+            self.CLAW_MOTOR_TIMEOUT_SECS,   # time
+            TimeUnits.SEC   # timeUnit
+        )
 
         self.controller = Controller()
         self.controller.set_deadband(self.CONTROLLER_DEADBAND)

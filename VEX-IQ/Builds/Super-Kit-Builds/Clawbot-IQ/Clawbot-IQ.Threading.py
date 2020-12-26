@@ -64,6 +64,7 @@ CLAW_MOTOR = \
         11,   # index
         False   # reverse
     )
+CLAW_MOTOR.stall_timeout = 3
 CLAW_MOTOR_VELOCITY = 60   # %
 
 # controller configs

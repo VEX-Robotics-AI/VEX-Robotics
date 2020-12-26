@@ -38,6 +38,7 @@ class Clawbot:
 
     CLAW_MOTOR_PORT = 11
     CLAW_MOTOR_REVERSE_POLARITY = False
+    CLAW_MOTOR_TIMEOUT_SECS = 3
     CLAW_MOTOR_VELOCITY = 60   # %
 
     # controller configs
@@ -96,6 +97,7 @@ class Clawbot:
                 self.CLAW_MOTOR_PORT,   # index
                 self.CLAW_MOTOR_REVERSE_POLARITY   # reverse
             )
+        self.claw_motor.stall_timeout = self.CLAW_MOTOR_TIMEOUT_SECS
 
         self.controller = Joystick()
         self.controller.set_deadband(self.CONTROLLER_DEADBAND)
