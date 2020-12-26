@@ -4,68 +4,115 @@ from vexiq import \
     ColorSensor, \
     DistanceSensor, \
     Gyro, \
+    Joystick, \
     Motor, \
     TouchLed, \
     UNIT_CM
 
 
 class Clawbot:
-    def __init__(
-            self,
-            left_motor_port=1, right_motor_port=6,
-            wheel_travel_mm=200, track_mm=176,
-            touch_led_port=2,
-            color_sensor_port=3,
-            gyro_sensor_port=4,
-            distance_sensor_port=7,
-            bumper_switch_port=8,
-            arm_motor_port=10,
-            claw_motor_port=11):
+    # drive base configs
+    LEFT_MOTOR_PORT = 1
+    LEFT_MOTOR_REVERSE_POLARITY = False
+
+    RIGHT_MOTOR_PORT = 6
+    RIGHT_MOTOR_REVERSE_POLARITY = True
+
+    WHEEL_TRAVEL_MM = 200
+    TRACK_MM = 176
+
+    # sensor configs
+    TOUCH_LED_PORT = 2
+    COLOR_SENSOR_PORT = 3
+    GYRO_SENSOR_PORT = 4
+    DISTANCE_SENSOR_PORT = 7
+    DISTANCE_SENSOR_UNIT = UNIT_CM
+    BUMPER_SWITCH_PORT = 8
+
+    # actuator configs
+    ARM_MOTOR_PORT = 10
+    ARM_MOTOR_REVERSE_POLARITY = False
+
+    CLAW_MOTOR_PORT = 11
+    CLAW_MOTOR_REVERSE_POLARITY = False
+
+    # controller configs
+    CONTROLLER_DEADBAND = 3
+
+    def __init__(self):
+        self.left_motor = \
+            Motor(
+                self.LEFT_MOTOR_PORT,   # port
+                self.LEFT_MOTOR_REVERSE_POLARITY   # switch_polarity
+            )
+        self.right_motor = \
+            Motor(
+                self.RIGHT_MOTOR_PORT,   # port
+                self.RIGHT_MOTOR_REVERSE_POLARITY   # switch_polarity
+            )
         self.drivetrain = \
             Drivetrain(
-                Motor(
-                    left_motor_port,   # port
-                    False   # switch_polarity
-                ),   # left_motor
-                Motor(
-                    right_motor_port,   # port
-                    True   # switch_polarity
-                ),   # right_motor
-                wheel_travel_mm,   # wheel_travel_mm
-                track_mm   # track_mm
+                self.left_motor,   # left_motor
+                self.right_motor,   # right_motor
+                self.WHEEL_TRAVEL_MM,   # wheel_travel_mm
+                self.TRACK_MM   # track_mm
             )
 
-        self.touch_led = TouchLed(touch_led_port)
+        self.touch_led = TouchLed(self.TOUCH_LED_PORT)
 
         self.color_sensor = \
             ColorSensor(
-                color_sensor_port,   # index
+                self.COLOR_SENSOR_PORT,   # index
                 False,   # is_grayscale
                 700   # proximity
             )
 
         self.gyro_sensor = \
             Gyro(
-                gyro_sensor_port,   # index
+                self.GYRO_SENSOR_PORT,   # index
                 True   # calibrate
             )
 
         self.distance_sensor = \
             DistanceSensor(
-                distance_sensor_port,   # port
-                UNIT_CM   # unit
+                self.DISTANCE_SENSOR_PORT,   # port
+                self.DISTANCE_SENSOR_UNIT   # unit
             )
 
-        self.bumper_switch = Bumper(bumper_switch_port)
+        self.bumper_switch = Bumper(self.BUMPER_SWITCH_PORT)
 
         self.arm_motor = \
             Motor(
-                arm_motor_port,   # index
-                False   # reverse
+                self.ARM_MOTOR_PORT,   # index
+                self.ARM_MOTOR_REVERSE_POLARITY   # reverse
             )
 
         self.claw_motor = \
             Motor(
-                claw_motor_port,   # index
-                False   # reverse
+                self.CLAW_MOTOR_PORT,   # index
+                self.CLAW_MOTOR_REVERSE_POLARITY   # reverse
             )
+
+        self.controller = Joystick()
+        self.controller.set_deadband(self.CONTROLLER_DEADBAND)
+
+    def drive_once_by_controller(self):
+        self.left_motor.run(
+            self.controller.axisA(),   # power
+            None,   # distance
+            False   # hold
+        )
+        self.right_motor.run(
+            self.controller.axisD(),   # power
+            None,   # distance
+            False   # hold
+        )
+
+    def keep_driving_by_controller(self):
+        while True:
+            self.drive_once_by_controller()
+
+
+CLAWBOT = Clawbot()
+
+CLAWBOT.keep_driving_by_controller()

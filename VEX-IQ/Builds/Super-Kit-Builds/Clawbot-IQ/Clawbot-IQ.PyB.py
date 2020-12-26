@@ -17,7 +17,11 @@ from vex import \
 class Clawbot:
     # drive base configs
     LEFT_MOTOR_PORT = Ports.PORT1
+    LEFT_MOTOR_REVERSE_POLARITY = False
+
     RIGHT_MOTOR_PORT = Ports.PORT6
+    RIGHT_MOTOR_REVERSE_POLARITY = True
+
     WHEEL_TRAVEL = 200
     TRACK_WIDTH = 176
     DISTANCE_UNIT = DistanceUnits.MM
@@ -32,7 +36,10 @@ class Clawbot:
 
     # actuator configs
     ARM_MOTOR_PORT = Ports.PORT10
+    ARM_MOTOR_REVERSE_POLARITY = False
+
     CLAW_MOTOR_PORT = Ports.PORT11
+    CLAW_MOTOR_REVERSE_POLARITY = False
 
     # controller configs
     CONTROLLER_DEADBAND = 3
@@ -43,12 +50,12 @@ class Clawbot:
         self.left_motor = \
             Motor(
                 self.LEFT_MOTOR_PORT,   # index
-                False   # reverse
+                self.LEFT_MOTOR_REVERSE_POLARITY   # reverse
             )
         self.right_motor = \
             Motor(
                 self.RIGHT_MOTOR_PORT,   # index
-                True   # reverse
+                self.RIGHT_MOTOR_REVERSE_POLARITY   # reverse
             )
         self.drivetrain = \
             Drivetrain(
@@ -82,13 +89,13 @@ class Clawbot:
         self.arm_motor = \
             Motor(
                 self.ARM_MOTOR_PORT,   # index
-                False   # reverse
+                self.ARM_MOTOR_REVERSE_POLARITY   # reverse
             )
 
         self.claw_motor = \
             Motor(
                 self.CLAW_MOTOR_PORT,   # index
-                False   # reverse
+                self.CLAW_MOTOR_REVERSE_POLARITY   # reverse
             )
 
         self.controller = Controller()
