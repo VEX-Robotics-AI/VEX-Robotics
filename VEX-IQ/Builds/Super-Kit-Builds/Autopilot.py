@@ -1,25 +1,62 @@
 from drivetrain import Drivetrain
-from vexiq import Motor, TouchLed
+from vexiq import \
+    ColorSensor, \
+    DistanceSensor, \
+    Gyro, \
+    Motor, \
+    TouchLed, \
+    UNIT_CM
 
 
 class Autopilot:
-    def __init__(
-            self,
-            left_motor_port=1, right_motor_port=6,
-            wheel_travel_mm=200, track_mm=176,
-            touch_led_port=2):
+    LEFT_MOTOR_PORT = 1
+    LEFT_MOTOR_REVERSE_POLARITY = False
+
+    RIGHT_MOTOR_PORT = 6
+    RIGHT_MOTOR_REVERSE_POLARITY = True
+
+    WHEEL_TRAVEL_MM = 200
+    TRACK_MM = 176
+
+    # sensor configs
+    TOUCH_LED_PORT = 2
+    COLOR_SENSOR_PORT = 3
+    GYRO_SENSOR_PORT = 4
+    DISTANCE_SENSOR_PORT = 7
+    DISTANCE_SENSOR_UNIT = UNIT_CM
+
+    def __init__(self):
         self.drivetrain = \
             Drivetrain(
                 Motor(
-                    left_motor_port,   # port
-                    False   # switch_polarity
+                    self.LEFT_MOTOR_PORT,   # port
+                    self.LEFT_MOTOR_REVERSE_POLARITY   # switch_polarity
                 ),   # left_motor
                 Motor(
-                    right_motor_port,   # port
-                    True   # switch_polarity
+                    self.RIGHT_MOTOR_PORT,   # port
+                    self.RIGHT_MOTOR_REVERSE_POLARITY   # switch_polarity
                 ),   # right_motor
-                wheel_travel_mm,   # wheel_travel_mm
-                track_mm   # track_mm
+                self.WHEEL_TRAVEL_MM,   # wheel_travel_mm
+                self.TRACK_MM   # track_mm
             )
 
-        self.touch_led = TouchLed(touch_led_port)
+        self.touch_led = TouchLed(self.TOUCH_LED_PORT)
+
+        self.color_sensor = \
+            ColorSensor(
+                self.COLOR_SENSOR_PORT,   # index
+                False,   # is_grayscale
+                700   # proximity
+            )
+
+        self.gyro_sensor = \
+            Gyro(
+                self.GYRO_SENSOR_PORT,   # index
+                True   # calibrate
+            )
+
+        self.distance_sensor = \
+            DistanceSensor(
+                self.DISTANCE_SENSOR_PORT,   # port
+                self.DISTANCE_SENSOR_UNIT   # unit
+            )
