@@ -15,7 +15,11 @@ Students will explore robot behaviors and create code to drive the Autopilot rob
 
 ## KEY CONCEPTS
 
-Robot BehaviorsHow to create, download and run a projectProgramming forward movementProgramming backwards movementHow to save a project
+- Robot Behaviors
+- How to create, download and run a project
+- Programming forward movement
+- Programming backwards movement
+- How to save a project
 
 
 ## Objectives
