@@ -4,77 +4,144 @@ from vex import \
     BrakeType, \
     Bumper, \
     Colorsensor, \
-    Controller, ControllerAxis, ControllerButton, \
+    Controller, \
     DirectionType, \
     DistanceUnits, \
     Gyro, \
     Motor, \
     Ports, \
     Sonar, \
-    Touchled
+    Touchled, \
+    VelocityUnits
+
+from sys import run_in_thread
 
 
-class Clawbot:
-    def __init__(
-            self,
-            left_motor_port=Ports.PORT1, right_motor_port=Ports.PORT6,
-            wheel_travel=200, track_width=176,
-            distance_unit=DistanceUnits.MM,
-            gear_ratio=1,
-            touch_led_port=Ports.PORT2,
-            color_sensor_port=Ports.PORT3,
-            gyro_sensor_port=Ports.PORT4,
-            distance_sensor_port=Ports.PORT7,
-            bumper_switch_port=Ports.PORT8,
-            arm_motor_port=Ports.PORT10,
-            claw_motor_port=Ports.PORT11):
-        self.brain = Brain()
+BRAIN = Brain()
 
-        self.drivetrain = \
-            Drivetrain(
-                Motor(
-                    left_motor_port,   # index
-                    False   # reverse
-                ),   # left_motor
-                Motor(
-                    right_motor_port,   # index
-                    True   # reverse
-                ),   # right_motor
-                wheel_travel,   # wheel_travel
-                track_width,   # track_width
-                distance_unit,   # distanceUnits
-                gear_ratio   # gear_ratio
-            )
+# drive base configs
+LEFT_MOTOR = \
+    Motor(
+        Ports.PORT1,   # index
+        False   # reverse
+    )
+RIGHT_MOTOR = \
+    Motor(
+        Ports.PORT6,   # index
+        True   # reverse
+    )
+DRIVETRAIN = \
+    Drivetrain(
+        LEFT_MOTOR,   # left_motor
+        RIGHT_MOTOR,   # right_motor
+        200,   # wheel_travel
+        176,   # track_width
+        DistanceUnits.MM,   # distanceUnit
+        1   # gear_ratio
+    )
 
-        self.touch_led = Touchled(touch_led_port)
+# sensor configs
+TOUCH_LED = Touchled(Ports.PORT2)
+COLOR_SENSOR = \
+    Colorsensor(
+        Ports.PORT3,   # index
+        False,   # is_grayscale
+        700   # proximity
+    )
+GYRO_SENSOR = \
+    Gyro(
+        Ports.PORT4,   # index
+        True   # calibrate
+    )
+DISTANCE_SENSOR = Sonar(Ports.PORT7)
+BUMPER_SWITCH = Bumper(Ports.PORT8)
 
-        self.color_sensor = \
-            Colorsensor(
-                color_sensor_port,   # index
-                False,   # is_grayscale
-                700   # proximity
-            )
+# actuator configs
+ARM_MOTOR = \
+    Motor(
+        Ports.PORT10,   # index
+        False   # reverse
+    )
+ARM_MOTOR_VELOCITY = 30   # %
 
-        self.gyro_sensor = \
-            Gyro(
-                gyro_sensor_port,   # index
-                True   # calibrate
-            )
+CLAW_MOTOR = \
+    Motor(
+        Ports.PORT11,   # index
+        False   # reverse
+    )
+CLAW_MOTOR_VELOCITY = 60   # %
 
-        self.distance_sensor = Sonar(distance_sensor_port)
+# controller configs
+CONTROLLER = Controller()
+CONTROLLER.set_deadband(3)
 
-        self.bumper_switch = Bumper(bumper_switch_port)
 
-        self.arm_motor = \
-            Motor(
-                arm_motor_port,   # index
-                False   # reverse
-            )
+def drive_once_by_controller():
+    LEFT_MOTOR.spin(
+        DirectionType.FWD,   # dir
+        CONTROLLER.axisA.position(),   # velocity
+        VelocityUnits.PCT   # velocityUnit
+    )
+    RIGHT_MOTOR.spin(
+        DirectionType.FWD,   # dir
+        CONTROLLER.axisD.position(),   # velocity
+        VelocityUnits.PCT   # velocityUnit
+    )
 
-        self.claw_motor = \
-            Motor(
-                claw_motor_port,   # index
-                False   # reverse
-            )
-            
-        self.controller = Controller()
+
+def keep_driving_by_controller():
+    while True:
+        drive_once_by_controller()
+
+
+def lower_or_raise_arm_once_by_controller():
+    if CONTROLLER.buttonLDown.pressing():
+        ARM_MOTOR.spin(
+            DirectionType.REV,   # dir
+            ARM_MOTOR_VELOCITY,   # velocity
+            VelocityUnits.PCT   # velocityUnit
+        )
+
+    elif CONTROLLER.buttonLUp.pressing():
+        ARM_MOTOR.spin(
+            DirectionType.FWD,   # dir
+            ARM_MOTOR_VELOCITY,   # velocity
+            VelocityUnits.PCT   # velocityUnit
+        )
+
+    else:
+        ARM_MOTOR.stop(BrakeType.HOLD)
+
+
+def keep_lowering_or_raising_arm_by_controller():
+    while True:
+        lower_or_raise_arm_once_by_controller()
+
+
+def grab_or_release_object_by_controller():
+    if CONTROLLER.buttonRDown.pressing():
+        CLAW_MOTOR.spin(
+            DirectionType.REV,   # dir
+            CLAW_MOTOR_VELOCITY,   # velocity
+            VelocityUnits.PCT   # velocityUnit
+        )
+
+    elif CONTROLLER.buttonRUp.pressing():
+        CLAW_MOTOR.spin(
+            DirectionType.FWD,   # dir
+            CLAW_MOTOR_VELOCITY,   # velocity
+            VelocityUnits.PCT   # velocityUnit
+        )
+
+    else:
+        CLAW_MOTOR.stop(BrakeType.HOLD)
+
+
+def keep_grabbing_or_releasing_objects_by_controller():
+    while True:
+        grab_or_release_object_by_controller()
+
+
+run_in_thread(keep_lowering_or_raising_arm_by_controller)
+run_in_thread(keep_grabbing_or_releasing_objects_by_controller)
+keep_driving_by_controller()
