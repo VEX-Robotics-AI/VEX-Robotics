@@ -1,6 +1,7 @@
 from drivetrain import Drivetrain
 from vex import \
     Brain, \
+    BrakeType, \
     Bumper, \
     Colorsensor, \
     Controller, \
@@ -12,6 +13,8 @@ from vex import \
     Sonar, \
     Touchled, \
     VelocityUnits
+
+from sys import run_in_thread
 
 
 class Clawbot:
@@ -37,9 +40,11 @@ class Clawbot:
     # actuator configs
     ARM_MOTOR_PORT = Ports.PORT10
     ARM_MOTOR_REVERSE_POLARITY = False
+    ARM_MOTOR_VELOCITY = 30   # %
 
     CLAW_MOTOR_PORT = Ports.PORT11
     CLAW_MOTOR_REVERSE_POLARITY = False
+    CLAW_MOTOR_VELOCITY = 60   # %
 
     # controller configs
     CONTROLLER_DEADBAND = 3
@@ -117,7 +122,60 @@ class Clawbot:
         while True:
             self.drive_once_by_controller()
 
+    def lower_or_raise_arm_once_by_controller(self):
+        if self.controller.buttonLDown.pressing():
+            self.arm_motor.spin(
+                DirectionType.REV,   # dir
+                self.ARM_MOTOR_VELOCITY,   # velocity
+                VelocityUnits.PCT   # velocityUnit
+            )
+
+        elif self.controller.buttonLUp.pressing():
+            self.arm_motor.spin(
+                DirectionType.FWD,   # dir
+                self.ARM_MOTOR_VELOCITY,   # velocity
+                VelocityUnits.PCT   # velocityUnit
+            )
+
+        else:
+            self.arm_motor.stop(BrakeType.HOLD)
+
+    def keep_lowering_or_raising_arm_by_controller(self):
+        while True:
+            self.lower_or_raise_arm_once_by_controller()
+
+    def grab_or_release_object_by_controller(self):
+        if self.controller.buttonRDown.pressing():
+            self.claw_motor.spin(
+                DirectionType.REV,   # dir
+                self.CLAW_MOTOR_VELOCITY,   # velocity
+                VelocityUnits.PCT   # velocityUnit
+            )
+
+        elif self.controller.buttonRUp.pressing():
+            self.claw_motor.spin(
+                DirectionType.FWD,   # dir
+                self.CLAW_MOTOR_VELOCITY,   # velocity
+                VelocityUnits.PCT   # velocityUnit
+            )
+
+        else:
+            self.claw_motor.stop(BrakeType.HOLD)
+
+    def keep_grabbing_or_releasing_objects_by_controller(self):
+        while True:
+            self.grab_or_release_object_by_controller()
+
 
 CLAWBOT = Clawbot()
 
-CLAWBOT.keep_driving_by_controller()
+
+while True:
+    CLAWBOT.drive_once_by_controller()
+    CLAWBOT.lower_or_raise_arm_once_by_controller()
+    CLAWBOT.grab_or_release_object_by_controller()
+
+
+# run_in_thread(CLAWBOT.keep_lowering_or_raising_arm_by_controller)
+# run_in_thread(CLAWBOT.keep_grabbing_or_releasing_objects_by_controller)
+# CLAWBOT.keep_driving_by_controller()
