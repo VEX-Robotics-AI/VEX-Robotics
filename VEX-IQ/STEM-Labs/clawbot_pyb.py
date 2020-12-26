@@ -68,7 +68,7 @@ class Clawbot:
                 False   # reverse
             )
 
-        self.claw_motor_port = \
+        self.claw_motor = \
             Motor(
                 claw_motor_port,   # index
                 False   # reverse
