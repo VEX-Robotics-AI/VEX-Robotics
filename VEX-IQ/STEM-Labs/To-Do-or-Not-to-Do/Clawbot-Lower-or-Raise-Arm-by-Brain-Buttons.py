@@ -82,18 +82,12 @@ while True:
             False   # hold
         )
 
-        while is_up_button_pressed():
-            pass
-
     elif is_down_button_pressed():
         CLAWBOT.arm_motor.run(
             -100,   # power,
             None,   # distance
             False   # hold
         )
-
-        while is_down_button_pressed():
-            pass
 
     else:
         CLAWBOT.arm_motor.hold()

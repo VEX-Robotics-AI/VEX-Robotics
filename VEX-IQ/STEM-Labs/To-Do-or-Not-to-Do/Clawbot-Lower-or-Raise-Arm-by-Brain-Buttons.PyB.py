@@ -88,18 +88,12 @@ while True:
             VelocityUnits.PCT   # velocityUnit
         )
 
-        while CLAWBOT.brain.buttonUp.pressing():
-            pass
-
     elif CLAWBOT.brain.buttonDown.pressing():
         CLAWBOT.arm_motor.spin(
             DirectionType.REV,   # dir
             100,   # velocity
             VelocityUnits.PCT   # velocityUnit
         )
-
-        while CLAWBOT.brain.buttonDown.pressing():
-            pass
 
     else:
         CLAWBOT.arm_motor.stop(BrakeType.HOLD)
