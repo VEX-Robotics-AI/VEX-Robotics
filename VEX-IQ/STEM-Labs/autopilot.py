@@ -1,5 +1,5 @@
 from drivetrain import Drivetrain
-from vexiq import Motor
+from vexiq import Motor, TouchLed
 
 
 class Autopilot:
@@ -20,3 +20,5 @@ class Autopilot:
                 wheel_travel_mm,   # wheel_travel_mm
                 track_mm   # track_mm
             )
+
+        self.touch_led = TouchLed(touch_led_port)
