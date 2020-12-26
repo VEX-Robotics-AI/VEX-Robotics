@@ -89,4 +89,4 @@ The following VEX STEM Lab supports students as they are introduced to completin
 
 ## CODE
 
-Refer to [Clawbot-IQ programs](../..)
+Refer to [Clawbot-IQ programs](../../Builds/Super-Kit-Builds/Clawbot-IQ).
