@@ -1,8 +1,11 @@
 from drivetrain import Drivetrain
 from vex import \
     Brain, \
+    BrakeType, \
     Bumper, \
     Colorsensor, \
+    Controller, ControllerAxis, ControllerButton, \
+    DirectionType, \
     DistanceUnits, \
     Gyro, \
     Motor, \
@@ -73,3 +76,5 @@ class Clawbot:
                 claw_motor_port,   # index
                 False   # reverse
             )
+            
+        self.controller = Controller()
