@@ -15,75 +15,84 @@ from vex import \
 
 
 class Clawbot:
-    def __init__(
-            self,
-            left_motor_port=Ports.PORT1, right_motor_port=Ports.PORT6,
-            wheel_travel=200, track_width=176,
-            distance_unit=DistanceUnits.MM,
-            gear_ratio=1,
-            touch_led_port=Ports.PORT2,
-            color_sensor_port=Ports.PORT3,
-            gyro_sensor_port=Ports.PORT4,
-            distance_sensor_port=Ports.PORT7,
-            bumper_switch_port=Ports.PORT8,
-            arm_motor_port=Ports.PORT10,
-            claw_motor_port=Ports.PORT11,
-            controller_deadband=3):
+    # drive base configs
+    LEFT_MOTOR_PORT = Ports.PORT1
+    RIGHT_MOTOR_PORT = Ports.PORT6
+    WHEEL_TRAVEL = 200
+    TRACK_WIDTH = 176
+    DISTANCE_UNIT = DistanceUnits.MM
+    GEAR_RATIO = 1
+
+    # sensor configs
+    TOUCH_LED_PORT = Ports.PORT2
+    COLOR_SENSOR_PORT = Ports.PORT3
+    GYRO_SENSOR_PORT = Ports.PORT4
+    DISTANCE_SENSOR_PORT = Ports.PORT7
+    BUMPER_SWITCH_PORT = Ports.PORT8
+
+    # actuator configs
+    ARM_MOTOR_PORT = Ports.PORT10
+    CLAW_MOTOR_PORT = Ports.PORT11
+
+    # controller configs
+    CONTROLLER_DEADBAND = 3
+
+    def __init__(self):
         self.brain = Brain()
 
         self.left_motor = \
             Motor(
-                left_motor_port,   # index
+                self.LEFT_MOTOR_PORT,   # index
                 False   # reverse
             )
         self.right_motor = \
             Motor(
-                right_motor_port,   # index
+                self.RIGHT_MOTOR_PORT,   # index
                 True   # reverse
             )
         self.drivetrain = \
             Drivetrain(
                 self.left_motor,   # left_motor
                 self.right_motor,   # right_motor
-                wheel_travel,   # wheel_travel
-                track_width,   # track_width
-                distance_unit,   # distanceUnits
-                gear_ratio   # gear_ratio
+                self.WHEEL_TRAVEL,   # wheel_travel
+                self.TRACK_WIDTH,   # track_width
+                self.DISTANCE_UNIT,   # distanceUnit
+                self.GEAR_RATIO   # gear_ratio
             )
 
-        self.touch_led = Touchled(touch_led_port)
+        self.touch_led = Touchled(self.TOUCH_LED_PORT)
 
         self.color_sensor = \
             Colorsensor(
-                color_sensor_port,   # index
+                self.COLOR_SENSOR_PORT,   # index
                 False,   # is_grayscale
                 700   # proximity
             )
 
         self.gyro_sensor = \
             Gyro(
-                gyro_sensor_port,   # index
+                self.GYRO_SENSOR_PORT,   # index
                 True   # calibrate
             )
 
-        self.distance_sensor = Sonar(distance_sensor_port)
+        self.distance_sensor = Sonar(self.DISTANCE_SENSOR_PORT)
 
-        self.bumper_switch = Bumper(bumper_switch_port)
+        self.bumper_switch = Bumper(self.BUMPER_SWITCH_PORT)
 
         self.arm_motor = \
             Motor(
-                arm_motor_port,   # index
+                self.ARM_MOTOR_PORT,   # index
                 False   # reverse
             )
 
         self.claw_motor = \
             Motor(
-                claw_motor_port,   # index
+                self.CLAW_MOTOR_PORT,   # index
                 False   # reverse
             )
 
         self.controller = Controller()
-        self.controller.set_deadband(controller_deadband)
+        self.controller.set_deadband(self.CONTROLLER_DEADBAND)
 
     def drive_once_by_controller(self):
         self.left_motor.spin(
