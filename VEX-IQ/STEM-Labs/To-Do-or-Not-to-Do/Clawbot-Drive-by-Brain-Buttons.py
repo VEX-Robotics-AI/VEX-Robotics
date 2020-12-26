@@ -81,11 +81,17 @@ while True:
             None   # distance_mm
         )
 
+        while is_up_button_pressed():
+            pass
+
     elif is_down_button_pressed():
         CLAWBOT.drivetrain.drive(
             -100,   # power
             None   # distance_mm
         )
+
+        while is_down_button_pressed():
+            pass
 
     else:
         CLAWBOT.drivetrain.off()
