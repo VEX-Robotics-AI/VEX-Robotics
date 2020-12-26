@@ -9,6 +9,8 @@ from vexiq import \
     TouchLed, \
     UNIT_CM
 
+from sys import run_in_thread
+
 
 class Clawbot:
     # drive base configs
@@ -32,9 +34,11 @@ class Clawbot:
     # actuator configs
     ARM_MOTOR_PORT = 10
     ARM_MOTOR_REVERSE_POLARITY = False
+    ARM_MOTOR_VELOCITY = 30   # %
 
     CLAW_MOTOR_PORT = 11
     CLAW_MOTOR_REVERSE_POLARITY = False
+    CLAW_MOTOR_VELOCITY = 60   # %
 
     # controller configs
     CONTROLLER_DEADBAND = 3
@@ -112,7 +116,60 @@ class Clawbot:
         while True:
             self.drive_once_by_controller()
 
+    def lower_or_raise_arm_once_by_controller(self):
+        if self.controller.bLdown():
+            self.arm_motor.run(
+                -self.ARM_MOTOR_VELOCITY,   # power
+                None,   # distance
+                False   # hold
+            )
+
+        elif self.controller.bLup():
+            self.arm_motor.run(
+                self.ARM_MOTOR_VELOCITY,   # power
+                None,   # distance
+                False   # hold
+            )
+
+        else:
+            self.arm_motor.hold()
+
+    def keep_lowering_or_raising_arm_by_controller(self):
+        while True:
+            self.lower_or_raise_arm_once_by_controller()
+
+    def grab_or_release_object_by_controller(self):
+        if self.controller.bRdown():
+            self.claw_motor.run(
+                -self.CLAW_MOTOR_VELOCITY,   # power
+                None,   # distance
+                False   # hold
+            )
+
+        elif self.controller.bRup():
+            self.claw_motor.run(
+                self.CLAW_MOTOR_VELOCITY,   # power
+                None,   # distance
+                False   # hold
+            )
+
+        else:
+            self.claw_motor.hold()
+
+    def keep_grabbing_or_releasing_objects_by_controller(self):
+        while True:
+            self.grab_or_release_object_by_controller()
+
 
 CLAWBOT = Clawbot()
 
-CLAWBOT.keep_driving_by_controller()
+
+while True:
+    CLAWBOT.drive_once_by_controller()
+    CLAWBOT.lower_or_raise_arm_once_by_controller()
+    CLAWBOT.grab_or_release_object_by_controller()
+
+
+# run_in_thread(CLAWBOT.keep_lowering_or_raising_arm_by_controller)
+# run_in_thread(CLAWBOT.keep_grabbing_or_releasing_objects_by_controller)
+# CLAWBOT.keep_driving_by_controller()
