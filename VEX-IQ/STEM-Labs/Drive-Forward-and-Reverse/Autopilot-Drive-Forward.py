@@ -3,26 +3,33 @@ from vexiq import Motor
 
 
 class Autopilot:
-    def __init__(
-            self,
-            left_motor_port=1, right_motor_port=6,
-            wheel_travel_mm=200, track_mm=176):
+    LEFT_MOTOR_PORT = 1
+    LEFT_MOTOR_REVERSE_POLARITY = False
+
+    RIGHT_MOTOR_PORT = 6
+    RIGHT_MOTOR_REVERSE_POLARITY = True
+
+    WHEEL_TRAVEL_MM = 200
+    TRACK_MM = 176
+
+    def __init__(self):
         self.drivetrain = \
             Drivetrain(
                 Motor(
-                    left_motor_port,   # port
-                    False   # switch_polarity
+                    self.LEFT_MOTOR_PORT,   # port
+                    self.LEFT_MOTOR_REVERSE_POLARITY   # switch_polarity
                 ),   # left_motor
                 Motor(
-                    right_motor_port,   # port
-                    True   # switch_polarity
+                    self.RIGHT_MOTOR_PORT,   # port
+                    self.RIGHT_MOTOR_REVERSE_POLARITY   # switch_polarity
                 ),   # right_motor
-                wheel_travel_mm,   # wheel_travel_mm
-                track_mm   # track_mm
+                self.WHEEL_TRAVEL_MM,   # wheel_travel_mm
+                self.TRACK_MM   # track_mm
             )
 
 
 AUTOPILOT = Autopilot()
+
 
 AUTOPILOT.drivetrain.drive(
     100,   # power

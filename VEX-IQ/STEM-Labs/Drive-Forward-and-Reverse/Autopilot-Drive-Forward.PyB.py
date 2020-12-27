@@ -3,30 +3,38 @@ from vex import DirectionType, DistanceUnits, Motor, Ports, VelocityUnits
 
 
 class Autopilot:
-    def __init__(
-            self,
-            left_motor_port=Ports.PORT1, right_motor_port=Ports.PORT6,
-            wheel_travel=200, track_width=176,
-            distance_unit=DistanceUnits.MM,
-            gear_ratio=1):
+    # drive base configs
+    LEFT_MOTOR_PORT = Ports.PORT1
+    LEFT_MOTOR_REVERSE_POLARITY = False
+
+    RIGHT_MOTOR_PORT = Ports.PORT6
+    RIGHT_MOTOR_REVERSE_POLARITY = True
+
+    WHEEL_TRAVEL = 200
+    TRACK_WIDTH = 176
+    DISTANCE_UNIT = DistanceUnits.MM
+    GEAR_RATIO = 1
+
+    def __init__(self):
         self.drivetrain = \
             Drivetrain(
                 Motor(
-                    left_motor_port,   # index
-                    False   # reverse
+                    self.LEFT_MOTOR_PORT,   # index
+                    self.LEFT_MOTOR_REVERSE_POLARITY   # reverse
                 ),   # left_motor
                 Motor(
-                    right_motor_port,   # index
-                    True   # reverse
+                    self.RIGHT_MOTOR_PORT,   # index
+                    self.RIGHT_MOTOR_REVERSE_POLARITY   # reverse
                 ),   # right_motor
-                wheel_travel,   # wheel_travel
-                track_width,   # track_width
-                distance_unit,   # distanceUnits
-                gear_ratio   # gear_ratio
+                self.WHEEL_TRAVEL,   # wheel_travel
+                self.TRACK_WIDTH,   # track_width
+                self.DISTANCE_UNIT,   # distanceUnits
+                self.GEAR_RATIO   # gear_ratio
             )
 
 
 AUTOPILOT = Autopilot()
+
 
 AUTOPILOT.drivetrain.drive(
     DirectionType.FWD,   # directionType
