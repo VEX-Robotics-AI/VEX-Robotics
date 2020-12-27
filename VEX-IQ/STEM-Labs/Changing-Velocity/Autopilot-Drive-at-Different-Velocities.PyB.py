@@ -28,7 +28,7 @@ class Autopilot:
                 ),   # right_motor
                 self.WHEEL_TRAVEL,   # wheel_travel
                 self.TRACK_WIDTH,   # track_width
-                self.DISTANCE_UNIT,   # distanceUnits
+                self.DISTANCE_UNIT,   # distanceUnit
                 self.GEAR_RATIO   # gear_ratio
             )
 
@@ -39,26 +39,26 @@ AUTOPILOT = Autopilot()
 AUTOPILOT.drivetrain.drive_for(
     DirectionType.FWD,   # directionType
     5,   # distance
-    DistanceUnits.IN,   # distanceUnits
+    DistanceUnits.IN,   # distanceUnit
     50,   # velocity
-    VelocityUnits.PCT,   # velocityUnits
+    VelocityUnits.PCT,   # velocityUnit
     True   # waitForCompletion
 )
 
 AUTOPILOT.drivetrain.drive_for(
     DirectionType.REV,   # directionType
     5,   # distance
-    DistanceUnits.IN,   # distanceUnits
+    DistanceUnits.IN,   # distanceUnit
     25,   # velocity
-    VelocityUnits.PCT,   # velocityUnits
+    VelocityUnits.PCT,   # velocityUnit
     True   # waitForCompletion
 )
 
 AUTOPILOT.drivetrain.drive_for(
     DirectionType.FWD,   # directionType
     5,   # distance
-    DistanceUnits.IN,   # distanceUnits
+    DistanceUnits.IN,   # distanceUnit
     75,   # velocity
-    VelocityUnits.PCT,   # velocityUnits
+    VelocityUnits.PCT,   # velocityUnit
     True   # waitForCompletion
 )

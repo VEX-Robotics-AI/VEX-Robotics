@@ -34,7 +34,7 @@ class Autopilot:
                 ),   # right_motor
                 self.WHEEL_TRAVEL,   # wheel_travel
                 self.TRACK_WIDTH,   # track_width
-                self.DISTANCE_UNIT,   # distanceUnits
+                self.DISTANCE_UNIT,   # distanceUnit
                 self.GEAR_RATIO   # gear_ratio
             )
 
@@ -47,6 +47,6 @@ AUTOPILOT.drivetrain.turn_for(
     90,   # angle
     RotationUnits.DEG,   # rotationUnits
     100,   # velocity
-    VelocityUnits.PCT,   # velocityUnits
+    VelocityUnits.PCT,   # velocityUnit
     True   # waitForCompletion
 )

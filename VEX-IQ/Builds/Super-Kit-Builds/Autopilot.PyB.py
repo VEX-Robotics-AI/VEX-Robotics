@@ -44,7 +44,7 @@ class Autopilot:
                 ),   # right_motor
                 self.WHEEL_TRAVEL,   # wheel_travel
                 self.TRACK_WIDTH,   # track_width
-                self.DISTANCE_UNIT,   # distanceUnits
+                self.DISTANCE_UNIT,   # distanceUnit
                 self.GEAR_RATIO   # gear_ratio
             )
 

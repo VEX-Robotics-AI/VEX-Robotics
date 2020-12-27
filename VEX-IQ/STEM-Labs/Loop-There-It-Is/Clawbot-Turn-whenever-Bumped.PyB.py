@@ -56,7 +56,7 @@ while True:
             90,   # angle
             RotationUnits.DEG,   # rotationUnits
             None,   # velocity
-            VelocityUnits.PCT,   # velocityUnits
+            VelocityUnits.PCT,   # velocityUnit
             True   # waitForCompletion
         )
 
@@ -64,5 +64,5 @@ while True:
         CLAWBOT.drivetrain.drive(
             DirectionType.FWD,   # directionType
             None,   # velocity
-            VelocityUnits.PCT   # velocityUnits
+            VelocityUnits.PCT   # velocityUnit
         )
