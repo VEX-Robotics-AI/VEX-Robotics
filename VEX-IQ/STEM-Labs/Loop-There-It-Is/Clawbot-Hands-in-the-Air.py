@@ -1,8 +1,6 @@
 from drivetrain import Drivetrain
 from vexiq import Motor
 
-from sys import sleep
-
 
 class Clawbot:
     # drive base configs
@@ -46,26 +44,23 @@ CLAWBOT = Clawbot()
 
 for _ in range(10):
     CLAWBOT.arm_motor.run_until(
-        100,  # power
-        300,   # distance
+        80,  # power
+        900,   # distance
         True   # hold
     )
 
-    CLAWBOT.drivetrain.turn_until(
-        100,   # power
-        -90   # angle_deg
-    )
-
-    for _ in range(9):
+    for _ in range(3):
         CLAWBOT.drivetrain.turn_until(
-            100,   # power
-            10   # angle_deg
+            65,   # power
+            90   # angle_deg
+        )
+        CLAWBOT.drivetrain.turn_until(
+            65,   # power
+            -90   # angle_deg
         )
 
-        sleep(0.5)
-
     CLAWBOT.arm_motor.run_until(
-        -100,  # power
-        300,   # distance
+        -80,  # power
+        900,   # distance
         True   # hold
     )
