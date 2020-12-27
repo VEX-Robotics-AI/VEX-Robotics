@@ -59,7 +59,7 @@ CLAWBOT.arm_motor.run_until(
 
 for _ in range(10):
     CLAWBOT.drivetrain.turn_until(
-        50,   # power
+        100,   # power
         -90   # angle_deg
     )
 
@@ -76,7 +76,7 @@ for _ in range(10):
         )
 
     CLAWBOT.drivetrain.turn_until(
-        50,   # power
+        100,   # power
         90   # angle_deg
     )
 
