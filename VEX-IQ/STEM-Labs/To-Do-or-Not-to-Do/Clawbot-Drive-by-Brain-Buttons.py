@@ -1,5 +1,5 @@
 from drivetrain import Drivetrain
-from vexiq import Motor, is_up_button_pressed, is_down_button_pressed
+from vexiq import Motor, is_down_button_pressed, is_up_button_pressed
 
 
 class Clawbot:
@@ -32,15 +32,15 @@ CLAWBOT = Clawbot()
 
 
 while True:
-    if is_up_button_pressed():
+    if is_down_button_pressed():
         CLAWBOT.drivetrain.drive(
-            100,   # power
+            -100,   # power
             None   # distance_mm
         )
 
-    elif is_down_button_pressed():
+    elif is_up_button_pressed():
         CLAWBOT.drivetrain.drive(
-            -100,   # power
+            100,   # power
             None   # distance_mm
         )
 

@@ -25,16 +25,16 @@ CLAWBOT = Clawbot()
 
 
 while True:
-    if CLAWBOT.brain.buttonUp.pressing():
+    if CLAWBOT.brain.buttonDown.pressing():
         CLAWBOT.arm_motor.spin(
-            DirectionType.FWD,   # dir
+            DirectionType.REV,   # dir
             100,   # velocity
             VelocityUnits.PCT   # velocityUnit
         )
 
-    elif CLAWBOT.brain.buttonDown.pressing():
+    elif CLAWBOT.brain.buttonUp.pressing():
         CLAWBOT.arm_motor.spin(
-            DirectionType.REV,   # dir
+            DirectionType.FWD,   # dir
             100,   # velocity
             VelocityUnits.PCT   # velocityUnit
         )
