@@ -27,6 +27,9 @@
 [VEX Certifications](https://certifications.vex.com)
 
 
+[VEX Knowledge Base](https://kb.vex.com)
+
+
 [YouTube Channel](https://www.youtube.com/c/VEXRoboticsInc)
 
 
@@ -34,6 +37,20 @@ Forum Q&As:
 - [SuperKit vs. Retail version](https://www.vexforum.com/t/superkit-vs-retail-version/2528)
 
 Resellers: [US](https://www.vexrobotics.com/how-to-order) | [International](https://kb.vex.com/hc/en-us/articles/360044952972-International-Reseller-Info)
+
+
+## [Robotics Education & Competitions (REC) Foundation](https://www.roboticseducation.org)
+
+[Fundraising Resources](https://www.roboticseducation.org/fundraising-resources)
+
+[Grants](https://www.roboticseducation.org/grants)
+
+[VEX IQ Challenge (VIQC)](https://www.roboticseducation.org/vex-iq-challenge)
+
+
+### [Robot Events](https://www.robotevents.com)
+- [Challenges](https://challenges.robotevents.com)
+- [VEX IQ Challenge (VIQC)](https://www.robotevents.com/robot-competitions/vex-iq-challenge)
 
 
 ## Robot Mesh
@@ -47,3 +64,10 @@ Robot Mesh Connect:
   - Follow [this guide](https://forum.robotmesh.com/t/mac-os-10-15-7-support/327) to install Robot Mesh Connect on MacOS Catalina
 
 - [PC](https://www.robotmesh.com/downloads/RobotMeshConnect.msi)
+
+
+[Robot Mesh Studio Documentation](https://docs.robotmesh.com)
+
+
+[YouTube Channel](https://www.youtube.com/c/RobotMesh)
+- ["Python like a Pro!" Playlist](https://www.youtube.com/playlist?list=PLQu7Tvt7G2Lo_Vmya4XgkV-rgX6bgGPy_)
