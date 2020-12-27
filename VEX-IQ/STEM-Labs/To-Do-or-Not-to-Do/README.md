@@ -54,8 +54,3 @@ Students are asked to program their robot to act on conditionals and create a Us
 
 Science & Technology
 - Many physical (button-driven) User Interfaces (UIs) have been replaced by Graphical User Interfaces (GUIs). Have students investigate commonly used devices (keypads, phones, calculators, computers) that have transitioned from button-driven UIs to icon-driven GUIs. What are the benefits/costs?
-
-
-## CODE
-
-Refer to [Clawbot-IQ programs](../../Builds/Super-Kit-Builds/Clawbot-IQ).
