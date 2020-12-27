@@ -19,9 +19,6 @@ class Clawbot:
     ARM_MOTOR_PORT = 10
     ARM_MOTOR_REVERSE_POLARITY = False
 
-    CLAW_MOTOR_PORT = 11
-    CLAW_MOTOR_REVERSE_POLARITY = False
-
     def __init__(self):
         self.drivetrain = \
             Drivetrain(
@@ -41,12 +38,6 @@ class Clawbot:
             Motor(
                 self.ARM_MOTOR_PORT,   # index
                 self.ARM_MOTOR_REVERSE_POLARITY   # reverse
-            )
-
-        self.claw_motor = \
-            Motor(
-                self.CLAW_MOTOR_PORT,   # index
-                self.CLAW_MOTOR_REVERSE_POLARITY   # reverse
             )
 
 
