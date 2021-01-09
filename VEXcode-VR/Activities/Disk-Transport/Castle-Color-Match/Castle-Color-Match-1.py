@@ -1,1 +1,62 @@
-ÿþ
+def get_blue():
+    drivetrain.drive_for(FORWARD, 700, MM)
+    drivetrain.turn_for(LEFT, 90, DEGREES)
+    drivetrain.drive(FORWARD)
+    while not down_eye.near_object():
+        wait(5, MSEC)
+    drivetrain.stop()
+    magnet.energize(BOOST)
+    drivetrain.drive_for(REVERSE, 200, MM)
+    drivetrain.turn_for(RIGHT, 90, DEGREES)
+    drivetrain.drive_for(REVERSE, 400, MM)
+    drivetrain.turn_for(LEFT, 90, DEGREES)
+    drivetrain.drive_for(FORWARD, 800, MM)
+    drivetrain.turn_for(LEFT, 90, DEGREES)
+    drivetrain.drive_for(FORWARD, 200, MM)
+    magnet.energize(DROP)
+
+def get_green():
+    drivetrain.drive_for(FORWARD, 400, MM)
+    drivetrain.turn_for(RIGHT, 90, DEGREES)
+    drivetrain.drive(FORWARD)
+    while not down_eye.near_object():
+        wait(5, MSEC)
+    drivetrain.stop()
+    magnet.energize(BOOST)
+    drivetrain.drive_for(REVERSE, 200, MM)
+    drivetrain.turn_for(LEFT, 90, DEGREES)
+    drivetrain.drive_for(REVERSE, 400, MM)
+    drivetrain.turn_for(RIGHT, 90, DEGREES)
+    drivetrain.drive_for(FORWARD, 800, MM)
+    drivetrain.turn_for(RIGHT, 90, DEGREES)
+    drivetrain.drive_for(FORWARD, 200, MM)
+    magnet.energize(DROP)
+
+def get_red():
+    drivetrain.drive_for(FORWARD, 600, MM)
+    drivetrain.turn_for(LEFT, 90, DEGREES)
+    drivetrain.drive(FORWARD)
+    while not down_eye.near_object():
+        wait(5, MSEC)
+    drivetrain.stop()
+    magnet.energize(BOOST)
+    drivetrain.drive_for(REVERSE, 400, MM)
+    drivetrain.turn_for(LEFT, 90, DEGREES)
+    drivetrain.drive_for(FORWARD, 800, MM)
+    magnet.energize(DROP)
+
+def when_started1():
+    get_blue()
+    drivetrain.drive_for(REVERSE, 200, MM)
+    drivetrain.turn_for(RIGHT, 90, DEGREES)
+    drivetrain.drive_for(REVERSE, 800, MM)
+    drivetrain.turn_for(RIGHT, 90, DEGREES)
+    get_green()
+    drivetrain.drive_for(REVERSE, 200, MM)
+    drivetrain.turn_for(LEFT, 90, DEGREES)
+    drivetrain.drive_for(REVERSE, 800, MM)
+    drivetrain.turn_for(LEFT, 90, DEGREES)
+    get_red()
+    drivetrain.drive_for(REVERSE, 200, MM)
+
+vr_thread(when_started1())
