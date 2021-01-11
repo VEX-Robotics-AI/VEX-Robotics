@@ -14,6 +14,7 @@ class Allie:
     REAR_RIGHT_MOTOR_PORT = 12
     REAR_RIGHT_MOTOR_REVERSE_POLARITY = True
 
+    MOTOR_ROTATION_RESOLUTION_DEGS = 10
     MOTOR_TIMEOUT_SECS = 1
 
     CONTROLLER_DEADBAND = 3   # seconds
@@ -54,56 +55,56 @@ class Allie:
         if self.controller.bLdown():
             self.front_left_motor.run_until(
                 100,   # power
-                30,   # distance
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # distance
                 True   # hold
             )
 
         elif self.controller.bLup():
             self.front_left_motor.run_until(
                 -100,   # power
-                30,   # distance
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # distance
                 True   # hold
             )
 
         elif self.controller.bRdown():
             self.front_right_motor.run_until(
                 100,   # power
-                30,   # distance
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # distance
                 True   # hold
             )
 
         elif self.controller.bRup():
             self.front_right_motor.run_until(
                 -100,   # power
-                30,   # distance
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # distance
                 True   # hold
             )
 
         elif self.controller.bEup():
             self.rear_left_motor.run_until(
                 100,   # power
-                30,   # distance
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # distance
                 True   # hold
             )
 
         elif self.controller.bEdown():
             self.rear_left_motor.run_until(
                 -100,   # power
-                30,   # distance
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # distance
                 True   # hold
             )
 
         elif self.controller.bFup():
             self.rear_right_motor.run_until(
                 100,   # power
-                30,   # distance
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # distance
                 True   # hold
             )
 
         elif self.controller.bFdown():
             self.rear_right_motor.run_until(
                 -100,   # power
-                30,   # distance
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # distance
                 True   # hold
             )
 

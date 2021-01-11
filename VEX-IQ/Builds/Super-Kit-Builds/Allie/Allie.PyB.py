@@ -21,6 +21,7 @@ class Allie:
     REAR_RIGHT_MOTOR_PORT = Ports.PORT12
     REAR_RIGHT_MOTOR_REVERSE_POLARITY = True
 
+    MOTOR_ROTATION_RESOLUTION_DEGS = 10
     MOTOR_TIMEOUT_SECS = 1
 
     CONTROLLER_DEADBAND = 3   # seconds
@@ -73,7 +74,7 @@ class Allie:
         if self.controller.buttonLDown.pressing():
             self.front_left_motor.spin_for(
                 DirectionType.FWD,   # dir
-                30,   # rotation
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
                 100,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
@@ -83,7 +84,7 @@ class Allie:
         elif self.controller.buttonLUp.pressing():
             self.front_left_motor.spin_for(
                 DirectionType.REV,   # dir
-                30,   # rotation
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
                 100,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
@@ -93,7 +94,7 @@ class Allie:
         elif self.controller.buttonRDown.pressing():
             self.front_right_motor.spin_for(
                 DirectionType.FWD,   # dir
-                30,   # rotation
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
                 100,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
@@ -103,7 +104,7 @@ class Allie:
         elif self.controller.buttonRUp.pressing():
             self.front_right_motor.spin_for(
                 DirectionType.REV,   # dir
-                30,   # rotation
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
                 100,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
@@ -113,7 +114,7 @@ class Allie:
         elif self.controller.buttonEUp.pressing():
             self.rear_left_motor.spin_for(
                 DirectionType.FWD,   # dir
-                30,   # rotation
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
                 100,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
@@ -123,7 +124,7 @@ class Allie:
         elif self.controller.buttonEDown.pressing():
             self.rear_left_motor.spin_for(
                 DirectionType.REV,   # dir
-                30,   # rotation
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
                 100,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
@@ -133,7 +134,7 @@ class Allie:
         elif self.controller.buttonFUp.pressing():
             self.rear_right_motor.spin_for(
                 DirectionType.FWD,   # dir
-                30,   # rotation
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
                 100,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
@@ -143,7 +144,7 @@ class Allie:
         elif self.controller.buttonFDown.pressing():
             self.rear_right_motor.spin_for(
                 DirectionType.REV,   # dir
-                30,   # rotation
+                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
                 100,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
