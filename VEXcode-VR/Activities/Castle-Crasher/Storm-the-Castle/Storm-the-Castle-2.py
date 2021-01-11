@@ -1,0 +1,30 @@
+def forward_until_red():
+    drivetrain.drive(FORWARD)
+    while not down_eye.detect(RED):
+        wait(5, MSEC)
+    drivetrain.stop()
+
+def when_started():
+    drivetrain.turn_for(RIGHT, 90, DEGREES)
+    forward_until_red()
+    drivetrain.drive_for(REVERSE, 200, MM)
+    drivetrain.turn_for(RIGHT, 180, DEGREES)
+    forward_until_red()
+    drivetrain.drive_for(REVERSE, 100, MM)
+    drivetrain.turn_for(RIGHT, 90, DEGREES)
+    forward_until_red()
+    drivetrain.drive_for(REVERSE, 300, MM)
+    drivetrain.turn_for(RIGHT, 90, DEGREES)
+    drivetrain.drive_for(FORWARD, 50, MM)
+    drivetrain.turn_for(LEFT, 90, DEGREES)
+    forward_until_red()
+    drivetrain.drive_for(REVERSE, 500, MM)
+    drivetrain.turn_for(RIGHT, 90, DEGREES)
+    drivetrain.drive_for(FORWARD, 100, MM)
+    drivetrain.turn_for(LEFT, 90, DEGREES)
+    forward_until_red()
+    drivetrain.drive_for(REVERSE, 200, MM)
+    drivetrain.turn_for(RIGHT, 90, DEGREES)
+    forward_until_red()
+
+vr_thread(when_started())
