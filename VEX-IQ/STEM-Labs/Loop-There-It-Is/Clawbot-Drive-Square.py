@@ -28,16 +28,16 @@ class Clawbot:
             )
 
 
-if __name__ == 'TBD':
-    CLAWBOT = Clawbot()
+CLAWBOT = Clawbot()
 
-    for _ in range(4):
-        CLAWBOT.drivetrain.drive_until(
-            100,   # power
-            300   # distance_mm
-            )
 
-        CLAWBOT.drivetrain.turn_until(
-            50,   # power
-            -90   # angle_deg
+for _ in range(4):
+    CLAWBOT.drivetrain.drive_until(
+        100,   # power
+        300   # distance_mm
         )
+
+    CLAWBOT.drivetrain.turn_until(
+        50,   # power
+        -90   # angle_deg
+    )

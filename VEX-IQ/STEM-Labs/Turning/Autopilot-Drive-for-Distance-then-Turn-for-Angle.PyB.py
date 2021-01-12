@@ -40,23 +40,23 @@ class Autopilot:
             )
 
 
-if __name__ == 'TBD':
-    AUTOPILOT = Autopilot()
+AUTOPILOT = Autopilot()
 
-    AUTOPILOT.drivetrain.drive_for(
-        DirectionType.FWD,   # directionType
-        12,   # distance
-        DistanceUnits.IN,   # distanceUnit
-        100,   # velocity
-        VelocityUnits.PCT,   # velocityUnit
-        True   # waitForCompletion
-    )
 
-    AUTOPILOT.drivetrain.turn_for(
-        TurnType.LEFT,   # turnType
-        90,   # angle
-        RotationUnits.DEG,   # rotationUnits
-        100,   # velocity
-        VelocityUnits.PCT,   # velocityUnit
-        True   # waitForCompletion
-    )
+AUTOPILOT.drivetrain.drive_for(
+    DirectionType.FWD,   # directionType
+    12,   # distance
+    DistanceUnits.IN,   # distanceUnit
+    100,   # velocity
+    VelocityUnits.PCT,   # velocityUnit
+    True   # waitForCompletion
+)
+
+AUTOPILOT.drivetrain.turn_for(
+    TurnType.LEFT,   # turnType
+    90,   # angle
+    RotationUnits.DEG,   # rotationUnits
+    100,   # velocity
+    VelocityUnits.PCT,   # velocityUnit
+    True   # waitForCompletion
+)

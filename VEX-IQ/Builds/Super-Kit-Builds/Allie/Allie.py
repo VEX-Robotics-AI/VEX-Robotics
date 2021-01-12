@@ -113,7 +113,7 @@ class Allie:
             self.drive_once_by_controller()
 
 
-if __name__ == 'TBD':
-    ALLIE = Allie()
+ALLIE = Allie()
 
-    ALLIE.keep_driving_by_controller()
+
+ALLIE.keep_driving_by_controller()

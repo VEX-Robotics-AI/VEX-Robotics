@@ -138,7 +138,6 @@ def keep_grabbing_or_releasing_objects_by_controller(self):
         grab_or_release_object_by_controller()
 
 
-if __name__ == 'TBD':
-    run_in_thread(keep_lowering_or_raising_arm_by_controller)
-    run_in_thread(keep_grabbing_or_releasing_objects_by_controller)
-    keep_driving_by_controller()
+run_in_thread(keep_lowering_or_raising_arm_by_controller)
+run_in_thread(keep_grabbing_or_releasing_objects_by_controller)
+keep_driving_by_controller()

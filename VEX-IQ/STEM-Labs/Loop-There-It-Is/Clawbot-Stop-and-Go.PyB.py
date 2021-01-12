@@ -71,77 +71,77 @@ class Clawbot:
             )
 
 
-if __name__ == 'TBD':
-    CLAWBOT = Clawbot()
+CLAWBOT = Clawbot()
 
-    # Have your Clawbot drive in a square.
-    # Before each turn:
-    # - The claw must be opened and closed.
-    # - The arm must be raised and lowered.
-    # - The Touch LED must show at least one color.
-    # - At least one sound must play.
-    # The Clawbot cannot drive along a side of the square more than once.
-    for _ in range(4):
-        CLAWBOT.drivetrain.drive_for(
-            DirectionType.FWD,   # directionType
-            300,   # distance
-            DistanceUnits.MM,   # distanceUnit
-            100,   # velocity
-            VelocityUnits.PCT,   # velocityUnit
-            True   # waitForCompletion
-        )
 
-        CLAWBOT.claw_motor.spin_for(
-            DirectionType.REV,   # dir
-            90,   # rotation
-            RotationUnits.DEG,   # rotationUnit
-            100,   # velocity
-            VelocityUnits.PCT,   # velocityUnit
-            True   # waitForCompletion
-        )
-        CLAWBOT.claw_motor.spin_for(
-            DirectionType.FWD,   # dir
-            90,   # rotation
-            RotationUnits.DEG,   # rotationUnit
-            100,   # velocity
-            VelocityUnits.PCT,   # velocityUnit
-            True   # waitForCompletion
-        )
+# Have your Clawbot drive in a square.
+# Before each turn:
+# - The claw must be opened and closed.
+# - The arm must be raised and lowered.
+# - The Touch LED must show at least one color.
+# - At least one sound must play.
+# The Clawbot cannot drive along a side of the square more than once.
+for _ in range(4):
+    CLAWBOT.drivetrain.drive_for(
+        DirectionType.FWD,   # directionType
+        300,   # distance
+        DistanceUnits.MM,   # distanceUnit
+        100,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-        CLAWBOT.arm_motor.spin_for(
-            DirectionType.FWD,   # dir
-            900,   # rotation
-            RotationUnits.DEG,   # rotationUnit
-            100,   # velocity
-            VelocityUnits.PCT,   # velocityUnit
-            True   # waitForCompletion
-        )
-        CLAWBOT.arm_motor.spin_for(
-            DirectionType.REV,   # dir
-            900,   # rotation
-            RotationUnits.DEG,   # rotationUnit
-            100,   # velocity
-            VelocityUnits.PCT,   # velocityUnit
-            True   # waitForCompletion
-        )
+    CLAWBOT.claw_motor.spin_for(
+        DirectionType.REV,   # dir
+        90,   # rotation
+        RotationUnits.DEG,   # rotationUnit
+        100,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
+    CLAWBOT.claw_motor.spin_for(
+        DirectionType.FWD,   # dir
+        90,   # rotation
+        RotationUnits.DEG,   # rotationUnit
+        100,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-        CLAWBOT.touch_led.on_hue(
-            randint(1, 13),   # color
-            100   # brightness
-        )
+    CLAWBOT.arm_motor.spin_for(
+        DirectionType.FWD,   # dir
+        900,   # rotation
+        RotationUnits.DEG,   # rotationUnit
+        100,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
+    CLAWBOT.arm_motor.spin_for(
+        DirectionType.REV,   # dir
+        900,   # rotation
+        RotationUnits.DEG,   # rotationUnit
+        100,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-        CLAWBOT.brain.sound.play(
-            randint(1, 7),   # note
-            randint(1, 7),   # octave
-            0.5,   # duration
-            TimeUnits.SEC   # timeUnit
-        )
+    CLAWBOT.touch_led.on_hue(
+        randint(1, 13),   # color
+        100   # brightness
+    )
 
-        CLAWBOT.drivetrain.turn_for(
-            TurnType.RIGHT,   # turnType
-            90,   # angle
-            RotationUnits.DEG,   # rotationUnit
-            100,   # velocity
-            VelocityUnits.PCT,   # velocityUnit
-            True   # waitForCompletion
-        )
+    CLAWBOT.brain.sound.play(
+        randint(1, 7),   # note
+        randint(1, 7),   # octave
+        0.5,   # duration
+        TimeUnits.SEC   # timeUnit
+    )
+
+    CLAWBOT.drivetrain.turn_for(
+        TurnType.RIGHT,   # turnType
+        90,   # angle
+        RotationUnits.DEG,   # rotationUnit
+        100,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )

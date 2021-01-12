@@ -28,13 +28,13 @@ class Autopilot:
             )
 
 
-if __name__ == 'TBD':
-    AUTOPILOT = Autopilot()
+AUTOPILOT = Autopilot()
 
-    AUTOPILOT.drivetrain.drive(
-        100,   # power
-        None   # distance_mm
-    )
 
-    while True:
-        pass
+AUTOPILOT.drivetrain.drive(
+    100,   # power
+    None   # distance_mm
+)
+
+while True:
+    pass

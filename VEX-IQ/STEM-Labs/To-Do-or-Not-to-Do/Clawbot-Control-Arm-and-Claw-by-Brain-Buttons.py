@@ -76,10 +76,10 @@ class Clawbot:
                 self.claw_motor.hold()
 
 
-if __name__ == 'TBD':
-    CLAWBOT = Clawbot()
+CLAWBOT = Clawbot()
 
-    while True:
-        CLAWBOT.switch_between_arm_and_claw()
-        CLAWBOT.control_arm()
-        CLAWBOT.control_claw()
+
+while True:
+    CLAWBOT.switch_between_arm_and_claw()
+    CLAWBOT.control_arm()
+    CLAWBOT.control_claw()

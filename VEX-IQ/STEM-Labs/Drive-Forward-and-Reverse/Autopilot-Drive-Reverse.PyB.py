@@ -33,14 +33,14 @@ class Autopilot:
             )
 
 
-if __name__ == 'TBD':
-    AUTOPILOT = Autopilot()
+AUTOPILOT = Autopilot()
 
-    AUTOPILOT.drivetrain.drive(
-        DirectionType.REV,   # directionType
-        100,   # velocity
-        VelocityUnits.PCT   # velocityUnit
-    )
 
-    while True:
-        pass
+AUTOPILOT.drivetrain.drive(
+    DirectionType.REV,   # directionType
+    100,   # velocity
+    VelocityUnits.PCT   # velocityUnit
+)
+
+while True:
+    pass

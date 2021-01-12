@@ -13,23 +13,22 @@ class Clawbot:
             )
 
 
-if __name__ == 'TBD':
-    CLAWBOT = Clawbot()
+CLAWBOT = Clawbot()
 
-    while True:
-        if is_down_button_pressed():
-            CLAWBOT.claw_motor.run(
-                -100,   # power,
-                None,   # distance
-                False   # hold
-            )
+while True:
+    if is_down_button_pressed():
+        CLAWBOT.claw_motor.run(
+            -100,   # power,
+            None,   # distance
+            False   # hold
+        )
 
-        elif is_up_button_pressed():
-            CLAWBOT.claw_motor.run(
-                100,   # power,
-                None,   # distance
-                False   # hold
-            )
+    elif is_up_button_pressed():
+        CLAWBOT.claw_motor.run(
+            100,   # power,
+            None,   # distance
+            False   # hold
+        )
 
-        else:
-            CLAWBOT.claw_motor.hold()
+    else:
+        CLAWBOT.claw_motor.hold()

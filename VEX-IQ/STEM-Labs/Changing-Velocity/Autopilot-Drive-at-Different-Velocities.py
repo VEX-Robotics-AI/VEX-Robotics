@@ -28,20 +28,20 @@ class Autopilot:
             )
 
 
-if __name__ == 'TBD':
-    AUTOPILOT = Autopilot()
+AUTOPILOT = Autopilot()
 
-    AUTOPILOT.drivetrain.drive_until(
-        50,   # power
-        127   # distance_mm (5 inches)
-    )
 
-    AUTOPILOT.drivetrain.drive_until(
-        25,   # power
-        -127   # distance_mm (5 inches)
-    )
+AUTOPILOT.drivetrain.drive_until(
+    50,   # power
+    127   # distance_mm (5 inches)
+)
 
-    AUTOPILOT.drivetrain.drive_until(
-        75,   # power
-        127   # distance_mm (5 inches)
-    )
+AUTOPILOT.drivetrain.drive_until(
+    25,   # power
+    -127   # distance_mm (5 inches)
+)
+
+AUTOPILOT.drivetrain.drive_until(
+    75,   # power
+    127   # distance_mm (5 inches)
+)

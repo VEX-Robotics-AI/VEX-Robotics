@@ -59,54 +59,54 @@ class Clawbot:
             )
 
 
-if __name__ == 'TBD':
-    CLAWBOT = Clawbot()
+CLAWBOT = Clawbot()
 
-    # Have your Clawbot drive in a square.
-    # Before each turn:
-    # - The claw must be opened and closed.
-    # - The arm must be raised and lowered.
-    # - The Touch LED must show at least one color.
-    # - At least one sound must play.
-    # The Clawbot cannot drive along a side of the square more than once.
-    for _ in range(4):
-        CLAWBOT.drivetrain.drive_until(
-            100,   # power
-            300   # distance_mm
-        )
 
-        CLAWBOT.claw_motor.run_until(
-            -100,  # power
-            90,   # distance
-            True   # hold
-        )
-        CLAWBOT.claw_motor.run_until(
-            100,  # power
-            90,   # distance
-            True   # hold
-        )
+# Have your Clawbot drive in a square.
+# Before each turn:
+# - The claw must be opened and closed.
+# - The arm must be raised and lowered.
+# - The Touch LED must show at least one color.
+# - At least one sound must play.
+# The Clawbot cannot drive along a side of the square more than once.
+for _ in range(4):
+    CLAWBOT.drivetrain.drive_until(
+        100,   # power
+        300   # distance_mm
+    )
 
-        CLAWBOT.arm_motor.run_until(
-            100,  # power
-            900,   # distance
-            True   # hold
-        )
-        CLAWBOT.arm_motor.run_until(
-            -100,  # power
-            900,   # distance
-            True   # hold
-        )
+    CLAWBOT.claw_motor.run_until(
+        -100,  # power
+        90,   # distance
+        True   # hold
+    )
+    CLAWBOT.claw_motor.run_until(
+        100,  # power
+        90,   # distance
+        True   # hold
+    )
 
-        CLAWBOT.touch_led.named_color(randint(1, 13))
-        CLAWBOT.touch_led.on()
+    CLAWBOT.arm_motor.run_until(
+        100,  # power
+        900,   # distance
+        True   # hold
+    )
+    CLAWBOT.arm_motor.run_until(
+        -100,  # power
+        900,   # distance
+        True   # hold
+    )
 
-        sound_note(
-            randint(1, 7),   # note
-            randint(1, 7),   # octave
-            0.5   # duration
-        )
+    CLAWBOT.touch_led.named_color(randint(1, 13))
+    CLAWBOT.touch_led.on()
 
-        CLAWBOT.drivetrain.turn_until(
-            50,   # power
-            -90   # angle_deg
-        )
+    sound_note(
+        randint(1, 7),   # note
+        randint(1, 7),   # octave
+        0.5   # duration
+    )
+
+    CLAWBOT.drivetrain.turn_until(
+        50,   # power
+        -90   # angle_deg
+    )
