@@ -21,7 +21,6 @@ class Allie:
     REAR_RIGHT_MOTOR_PORT = Ports.PORT12
     REAR_RIGHT_MOTOR_REVERSE_POLARITY = True
 
-    MOTOR_ROTATION_RESOLUTION_DEGS = 10
     MOTOR_VELOCITY_PCT = 100
 
     CONTROLLER_DEADBAND = 3   # seconds
@@ -51,16 +50,16 @@ class Allie:
         self.controller = Controller()
         self.controller.set_deadband(self.CONTROLLER_DEADBAND)
 
-    def reset_motor(self, motor):
+    def rest_leg_on_surface(self, leg_motor, forward=True):
         # rotate motor up to 270 degrees within 1 second
         # using max velocity but very light power/torque
-        motor.set_max_torque_percent(5)
-        motor.set_timeout(
+        leg_motor.set_max_torque_percent(5)
+        leg_motor.set_timeout(
             1,   # time,
             TimeUnits.SEC   # timeUnit
         )
-        motor.spin_for(
-            DirectionType.FWD,   # dir
+        leg_motor.spin_for(
+            DirectionType.FWD if forward else DirectionType.REV,   # dir
             270,   # rotation
             RotationUnits.DEG,   # rotationUnit
             100,   # velocity
@@ -68,127 +67,73 @@ class Allie:
             True   # waitForCompletion
         )
 
-        # set motor encoder to 0
-        motor.reset_rotation()
-
         # restore max motor power/torque to 100% again
-        motor.set_max_torque_percent(100)
+        leg_motor.set_max_torque_percent(100)
 
     def reset_legs(self):
-        self.reset_motor(self.front_left_motor)
-        self.reset_motor(self.front_right_motor)
-        self.reset_motor(self.rear_left_motor)
-        self.reset_motor(self.rear_right_motor)
+        for leg_motor in (self.front_left_motor, self.front_right_motor,
+                          self.rear_left_motor, self.rear_right_motor):
+            self.rest_leg_on_surface(leg_motor, True)
 
-    def drive_once_by_controller(self):
-        if self.controller.buttonLDown.pressing():
-            self.front_left_motor.spin_for(
-                DirectionType.FWD,   # dir
-                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
-                RotationUnits.DEG,   # rotationUnit
-                self.MOTOR_VELOCITY_PCT,   # velocity
-                VelocityUnits.PCT,   # velocityUnit
-                True   # waitForCompletion
-            )
+            # set motor encoder to 0
+            leg_motor.reset_rotation()
 
-        elif self.controller.buttonLUp.pressing():
-            self.front_left_motor.spin_for(
-                DirectionType.REV,   # dir
-                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
-                RotationUnits.DEG,   # rotationUnit
-                self.MOTOR_VELOCITY_PCT,   # velocity
-                VelocityUnits.PCT,   # velocityUnit
-                True   # waitForCompletion
-            )
+    def rest_left_legs_forward(self):
+        for leg_motor in (self.front_left_motor, self.rear_left_motor):
+            self.rest_leg_on_surface(leg_motor, True)
 
-        elif self.controller.buttonRDown.pressing():
-            self.front_right_motor.spin_for(
-                DirectionType.FWD,   # dir
-                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
-                RotationUnits.DEG,   # rotationUnit
-                self.MOTOR_VELOCITY_PCT,   # velocity
-                VelocityUnits.PCT,   # velocityUnit
-                True   # waitForCompletion
-            )
+    def rest_left_legs_backward(self):
+        for leg_motor in (self.rear_left_motor, self.front_left_motor):
+            self.rest_leg_on_surface(leg_motor, False)
 
-        elif self.controller.buttonRUp.pressing():
-            self.front_right_motor.spin_for(
-                DirectionType.REV,   # dir
-                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
-                RotationUnits.DEG,   # rotationUnit
-                self.MOTOR_VELOCITY_PCT,   # velocity
-                VelocityUnits.PCT,   # velocityUnit
-                True   # waitForCompletion
-            )
+    def rest_right_legs_forward(self):
+        for leg_motor in (self.front_right_motor, self.rear_right_motor):
+            self.rest_leg_on_surface(leg_motor, True)
 
-        elif self.controller.buttonEUp.pressing():
-            self.rear_left_motor.spin_for(
-                DirectionType.FWD,   # dir
-                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
-                RotationUnits.DEG,   # rotationUnit
-                self.MOTOR_VELOCITY_PCT,   # velocity
-                VelocityUnits.PCT,   # velocityUnit
-                True   # waitForCompletion
-            )
+    def rest_right_legs_backward(self):
+        for leg_motor in (self.rear_right_motor, self.front_right_motor):
+            self.rest_leg_on_surface(leg_motor, False)
+
+    def remote_control_once(self):
+        if self.controller.buttonEUp.pressing():
+            self.rest_left_legs_forward()
 
         elif self.controller.buttonEDown.pressing():
-            self.rear_left_motor.spin_for(
-                DirectionType.REV,   # dir
-                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
-                RotationUnits.DEG,   # rotationUnit
-                self.MOTOR_VELOCITY_PCT,   # velocity
-                VelocityUnits.PCT,   # velocityUnit
-                True   # waitForCompletion
-            )
+            self.rest_left_legs_backward()
 
         elif self.controller.buttonFUp.pressing():
-            self.rear_right_motor.spin_for(
-                DirectionType.FWD,   # dir
-                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
-                RotationUnits.DEG,   # rotationUnit
-                self.MOTOR_VELOCITY_PCT,   # velocity
-                VelocityUnits.PCT,   # velocityUnit
-                True   # waitForCompletion
-            )
+            self.rest_right_legs_forward()
 
         elif self.controller.buttonFDown.pressing():
-            self.rear_right_motor.spin_for(
-                DirectionType.REV,   # dir
-                self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
-                RotationUnits.DEG,   # rotationUnit
-                self.MOTOR_VELOCITY_PCT,   # velocity
-                VelocityUnits.PCT,   # velocityUnit
-                True   # waitForCompletion
+            self.rest_right_legs_backward()
+
+        else:
+            left_velocity = self.controller.axisA.position()
+            right_velocity = self.controller.axisD.position()
+            self.front_left_motor.spin(
+                DirectionType.FWD,   # dir
+                left_velocity,   # velocity
+                VelocityUnits.PCT   # velocityUnit
+            )
+            self.rear_left_motor.spin(
+                DirectionType.FWD,   # dir
+                left_velocity,   # velocity
+                VelocityUnits.PCT   # velocityUnit
+            )
+            self.front_right_motor.spin(
+                DirectionType.FWD,   # dir
+                right_velocity,   # velocity
+                VelocityUnits.PCT   # velocityUnit
+            )
+            self.rear_right_motor.spin(
+                DirectionType.FWD,   # dir
+                right_velocity,   # velocity
+                VelocityUnits.PCT   # velocityUnit
             )
 
-        a_velocity = self.controller.axisA.position()
-        d_velocity = self.controller.axisD.position()
-
-        self.front_left_motor.spin(
-            DirectionType.FWD,   # dir
-            a_velocity,   # velocity
-            VelocityUnits.PCT   # velocityUnit
-        )
-        self.rear_right_motor.spin(
-            DirectionType.FWD,   # dir
-            a_velocity,   # velocity
-            VelocityUnits.PCT   # velocityUnit
-        )
-
-        self.front_right_motor.spin(
-            DirectionType.FWD,   # dir
-            d_velocity,   # velocity
-            VelocityUnits.PCT   # velocityUnit
-        )
-        self.rear_left_motor.spin(
-            DirectionType.FWD,   # dir
-            d_velocity,   # velocity
-            VelocityUnits.PCT   # velocityUnit
-        )
-
-    def keep_driving_by_controller(self):
+    def keep_remote_controlling(self):
         while True:
-            self.drive_once_by_controller()
+            self.remote_control_once()
 
 
 ALLIE = Allie()
@@ -196,4 +141,4 @@ ALLIE = Allie()
 
 ALLIE.reset_legs()
 
-ALLIE.keep_driving_by_controller()
+ALLIE.keep_remote_controlling()
