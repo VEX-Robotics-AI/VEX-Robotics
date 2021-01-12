@@ -22,7 +22,6 @@ class Allie:
     REAR_RIGHT_MOTOR_REVERSE_POLARITY = True
 
     MOTOR_ROTATION_RESOLUTION_DEGS = 10
-    MOTOR_TIMEOUT_SECS = 1
 
     CONTROLLER_DEADBAND = 3   # seconds
 
@@ -32,43 +31,53 @@ class Allie:
                 self.FRONT_LEFT_MOTOR_PORT,   # index
                 self.FRONT_LEFT_MOTOR_REVERSE_POLARITY   # reverse
             )
-        self.front_left_motor.set_timeout(
-            self.MOTOR_TIMEOUT_SECS,   # time,
-            TimeUnits.SEC   # timeUnit
-        )
-
         self.front_right_motor = \
             Motor(
                 self.FRONT_RIGHT_MOTOR_PORT,   # index
                 self.FRONT_RIGHT_MOTOR_REVERSE_POLARITY   # reverse
             )
-        self.front_right_motor.set_timeout(
-            self.MOTOR_TIMEOUT_SECS,   # time,
-            TimeUnits.SEC   # timeUnit
-        )
-
         self.rear_left_motor = \
             Motor(
                 self.REAR_LEFT_MOTOR_PORT,   # index
                 self.REAR_LEFT_MOTOR_REVERSE_POLARITY   # reverse
             )
-        self.rear_left_motor.set_timeout(
-            self.MOTOR_TIMEOUT_SECS,   # time,
-            TimeUnits.SEC   # timeUnit
-        )
-
         self.rear_right_motor = \
             Motor(
                 self.REAR_RIGHT_MOTOR_PORT,   # index
                 self.REAR_RIGHT_MOTOR_REVERSE_POLARITY   # reverse
             )
-        self.rear_right_motor.set_timeout(
-            self.MOTOR_TIMEOUT_SECS,   # time,
-            TimeUnits.SEC   # timeUnit
-        )
 
         self.controller = Controller()
         self.controller.set_deadband(self.CONTROLLER_DEADBAND)
+
+    def reset_motor(self, motor):
+        # rotate motor up to 270 degrees within 1 second
+        # using max velocity but very light power/torque
+        motor.set_max_torque_percent(5)
+        motor.set_timeout(
+            1,   # time,
+            TimeUnits.SEC   # timeUnit
+        )
+        motor.spin_for(
+            DirectionType.FWD,   # dir
+            270,   # rotation
+            RotationUnits.DEG,   # rotationUnit
+            100,   # velocity
+            VelocityUnits.PCT,   # velocityUnit
+            True   # waitForCompletion
+        )
+
+        # set motor encoder to 0
+        motor.reset_rotation()
+
+        # restore max motor power/torque to 100% again
+        motor.set_max_torque_percent(100)
+
+    def reset_legs(self):
+        self.reset_motor(self.front_left_motor)
+        self.reset_motor(self.front_right_motor)
+        self.reset_motor(self.rear_left_motor)
+        self.reset_motor(self.rear_right_motor)
 
     def drive_once_by_controller(self):
         if self.controller.buttonLDown.pressing():
@@ -158,5 +167,7 @@ class Allie:
 
 ALLIE = Allie()
 
+
+ALLIE.reset_legs()
 
 ALLIE.keep_driving_by_controller()
