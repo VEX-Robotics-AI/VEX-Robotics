@@ -15,7 +15,6 @@ class Allie:
     REAR_RIGHT_MOTOR_REVERSE_POLARITY = True
 
     MOTOR_ROTATION_RESOLUTION_DEGS = 10
-    MOTOR_TIMEOUT_SECS = 1
 
     CONTROLLER_DEADBAND = 3   # seconds
 
@@ -25,31 +24,41 @@ class Allie:
                 self.FRONT_LEFT_MOTOR_PORT,   # port
                 self.FRONT_LEFT_MOTOR_REVERSE_POLARITY   # switch_polarity
             )
-        self.front_left_motor.stall_timeout = self.MOTOR_TIMEOUT_SECS
-
         self.front_right_motor = \
             Motor(
                 self.FRONT_RIGHT_MOTOR_PORT,   # port
                 True   # switch_polarity
             )
-        self.front_right_motor.stall_timeout = self.MOTOR_TIMEOUT_SECS
-
         self.rear_left_motor = \
             Motor(
                 self.REAR_LEFT_MOTOR_PORT,   # port
                 self.REAR_LEFT_MOTOR_REVERSE_POLARITY   # switch_polarity
             )
-        self.rear_left_motor.stall_timeout = self.MOTOR_TIMEOUT_SECS
-
         self.rear_right_motor = \
             Motor(
                 self.REAR_RIGHT_MOTOR_PORT,   # port
                 self.REAR_RIGHT_MOTOR_REVERSE_POLARITY   # switch_polarity
             )
-        self.rear_right_motor.stall_timeout = self.MOTOR_TIMEOUT_SECS
 
         self.controller = Joystick()
         self.controller.set_deadband(self.CONTROLLER_DEADBAND)
+
+    def reset_motor(self, motor):
+        # rotate motor up to 270 degrees within 1 second
+        # using max velocity but very light power/torque
+        # ...
+
+        # set motor encoder to 0
+        motor.reset_position()
+
+        # restore max motor power/torque to 100% again
+        # ...
+
+    def reset_legs(self):
+        self.reset_motor(self.front_left_motor)
+        self.reset_motor(self.front_right_motor)
+        self.reset_motor(self.rear_left_motor)
+        self.reset_motor(self.rear_right_motor)
 
     def drive_once_by_controller(self):
         if self.controller.bLdown():
@@ -115,5 +124,10 @@ class Allie:
 
 ALLIE = Allie()
 
+
+# NOTE:
+# we must manually put Allie's legs down, touching the surface first
+# before running the program
+ALLIE.reset_legs()
 
 ALLIE.keep_driving_by_controller()
