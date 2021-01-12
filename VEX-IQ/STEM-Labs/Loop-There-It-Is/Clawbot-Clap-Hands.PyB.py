@@ -59,69 +59,69 @@ class Clawbot:
             )
 
 
-CLAWBOT = Clawbot()
+if __name__ == 'TBD':
+    CLAWBOT = Clawbot()
 
-
-CLAWBOT.arm_motor.spin_for(
-    DirectionType.FWD,   # dir
-    300,   # rotation
-    RotationUnits.DEG,   # rotationUnit
-    100,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
-
-for _ in range(10):
-    CLAWBOT.drivetrain.turn_for(
-        TurnType.RIGHT,   # turnType
-        90,   # angle
-        RotationUnits.DEG,   # rotationUnits
+    CLAWBOT.arm_motor.spin_for(
+        DirectionType.FWD,   # dir
+        300,   # rotation
+        RotationUnits.DEG,   # rotationUnit
         100,   # velocity
         VelocityUnits.PCT,   # velocityUnit
         True   # waitForCompletion
     )
 
-    for _ in range(2):
-        CLAWBOT.claw_motor.spin_for(
-            DirectionType.REV,   # dir
-            90,   # rotation
-            RotationUnits.DEG,   # rotationUnit
-            100,   # velocity
-            VelocityUnits.PCT,   # velocityUnit
-            True   # waitForCompletion
-        )
-        CLAWBOT.claw_motor.spin_for(
-            DirectionType.FWD,   # dir
-            90,   # rotation
-            RotationUnits.DEG,   # rotationUnit
+    for _ in range(10):
+        CLAWBOT.drivetrain.turn_for(
+            TurnType.RIGHT,   # turnType
+            90,   # angle
+            RotationUnits.DEG,   # rotationUnits
             100,   # velocity
             VelocityUnits.PCT,   # velocityUnit
             True   # waitForCompletion
         )
 
-    CLAWBOT.drivetrain.turn_for(
-        TurnType.LEFT,   # turnType
-        90,   # angle
-        RotationUnits.DEG,   # rotationUnits
-        100,   # velocity
-        VelocityUnits.PCT,   # velocityUnit
-        True   # waitForCompletion
-    )
+        for _ in range(2):
+            CLAWBOT.claw_motor.spin_for(
+                DirectionType.REV,   # dir
+                90,   # rotation
+                RotationUnits.DEG,   # rotationUnit
+                100,   # velocity
+                VelocityUnits.PCT,   # velocityUnit
+                True   # waitForCompletion
+            )
+            CLAWBOT.claw_motor.spin_for(
+                DirectionType.FWD,   # dir
+                90,   # rotation
+                RotationUnits.DEG,   # rotationUnit
+                100,   # velocity
+                VelocityUnits.PCT,   # velocityUnit
+                True   # waitForCompletion
+            )
 
-    for _ in range(2):
-        CLAWBOT.claw_motor.spin_for(
-            DirectionType.REV,   # dir
-            90,   # rotation
-            RotationUnits.DEG,   # rotationUnit
+        CLAWBOT.drivetrain.turn_for(
+            TurnType.LEFT,   # turnType
+            90,   # angle
+            RotationUnits.DEG,   # rotationUnits
             100,   # velocity
             VelocityUnits.PCT,   # velocityUnit
             True   # waitForCompletion
         )
-        CLAWBOT.claw_motor.spin_for(
-            DirectionType.FWD,   # dir
-            90,   # rotation
-            RotationUnits.DEG,   # rotationUnit
-            100,   # velocity
-            VelocityUnits.PCT,   # velocityUnit
-            True   # waitForCompletion
-        )
+
+        for _ in range(2):
+            CLAWBOT.claw_motor.spin_for(
+                DirectionType.REV,   # dir
+                90,   # rotation
+                RotationUnits.DEG,   # rotationUnit
+                100,   # velocity
+                VelocityUnits.PCT,   # velocityUnit
+                True   # waitForCompletion
+            )
+            CLAWBOT.claw_motor.spin_for(
+                DirectionType.FWD,   # dir
+                90,   # rotation
+                RotationUnits.DEG,   # rotationUnit
+                100,   # velocity
+                VelocityUnits.PCT,   # velocityUnit
+                True   # waitForCompletion
+            )

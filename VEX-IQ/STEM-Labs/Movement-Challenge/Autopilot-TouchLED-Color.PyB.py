@@ -8,10 +8,10 @@ class Autopilot:
         self.touch_led = Touchled(self.TOUCH_LED_PORT)
 
 
-AUTOPILOT = Autopilot()
+if __name__ == 'TBD':
+    AUTOPILOT = Autopilot()
 
-
-AUTOPILOT.touch_led.on_hue(
-    ColorHue.GREEN,   # color
-    100   # brightness
-)
+    AUTOPILOT.touch_led.on_hue(
+        ColorHue.GREEN,   # color
+        100   # brightness
+    )

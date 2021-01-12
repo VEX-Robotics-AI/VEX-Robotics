@@ -6,12 +6,12 @@ class Autopilot:
         self.brain = Brain()
 
 
-AUTOPILOT = Autopilot()
+if __name__ == 'TBD':
+    AUTOPILOT = Autopilot()
 
-
-AUTOPILOT.brain.sound.play(
-    3,   # note
-    3,   # octave
-    1,   # duration
-    TimeUnits.SEC   # timeUnit
-)
+    AUTOPILOT.brain.sound.play(
+        3,   # note
+        3,   # octave
+        1,   # duration
+        TimeUnits.SEC   # timeUnit
+    )

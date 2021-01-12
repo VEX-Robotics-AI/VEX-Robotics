@@ -52,51 +52,52 @@ class Clawbot:
         self.claw_motor.stall_timeout = self.CLAW_MOTOR_TIMEOUT_SECS
 
 
-CLAWBOT = Clawbot()
+if __name__ == 'TBD':
+    CLAWBOT = Clawbot()
 
-# open the Claw 75 degrees
-CLAWBOT.claw_motor.run_until(
-    -100,   # power
-    75,   # distance (degrees)
-    True   # hold
-)
+    # open the Claw 75 degrees
+    CLAWBOT.claw_motor.run_until(
+        -100,   # power
+        75,   # distance (degrees)
+        True   # hold
+    )
 
-# drive forward 150 mm to approach the object
-CLAWBOT.drivetrain.drive_until(
-    100,   # power
-    150,   # distance_mm
-)
+    # drive forward 150 mm to approach the object
+    CLAWBOT.drivetrain.drive_until(
+        100,   # power
+        150,   # distance_mm
+    )
 
-# close the Claw 60 degrees to grab the object
-CLAWBOT.claw_motor.run_until(
-    100,   # power
-    60,   # distance (degrees)
-    True   # hold
-)
+    # close the Claw 60 degrees to grab the object
+    CLAWBOT.claw_motor.run_until(
+        100,   # power
+        60,   # distance (degrees)
+        True   # hold
+    )
 
-# raise the Arm 315 degrees to lift the object
-CLAWBOT.arm_motor.run_until(
-    100,   # power
-    315,   # distance (degrees)
-    True   # hold
-)
+    # raise the Arm 315 degrees to lift the object
+    CLAWBOT.arm_motor.run_until(
+        100,   # power
+        315,   # distance (degrees)
+        True   # hold
+    )
 
-# drive in reverse 150 mm to move the object to a new location
-CLAWBOT.drivetrain.drive_until(
-    -100,   # power
-    150,   # distance_mm
-)
+    # drive in reverse 150 mm to move the object to a new location
+    CLAWBOT.drivetrain.drive_until(
+        -100,   # power
+        150,   # distance_mm
+    )
 
-# lower the Arm 315 degrees to place the object back down
-CLAWBOT.arm_motor.run_until(
-    -100,   # power
-    315,   # distance (degrees)
-    True   # hold
-)
+    # lower the Arm 315 degrees to place the object back down
+    CLAWBOT.arm_motor.run_until(
+        -100,   # power
+        315,   # distance (degrees)
+        True   # hold
+    )
 
-# open the Claw 60 degrees to release the object
-CLAWBOT.claw_motor.run_until(
-    -100,   # power
-    60,   # distance (degrees)
-    True   # hold
-)
+    # open the Claw 60 degrees to release the object
+    CLAWBOT.claw_motor.run_until(
+        -100,   # power
+        60,   # distance (degrees)
+        True   # hold
+    )

@@ -80,10 +80,10 @@ class Clawbot:
                 self.claw_motor.stop(BrakeType.HOLD)
 
 
-CLAWBOT = Clawbot()
+if __name__ == 'TBD':
+    CLAWBOT = Clawbot()
 
-
-while True:
-    CLAWBOT.switch_between_arm_and_claw()
-    CLAWBOT.control_arm()
-    CLAWBOT.control_claw()
+    while True:
+        CLAWBOT.switch_between_arm_and_claw()
+        CLAWBOT.control_arm()
+        CLAWBOT.control_claw()

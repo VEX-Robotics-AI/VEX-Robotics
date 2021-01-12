@@ -28,7 +28,7 @@ class VRex:
             self.drive_once_by_controller()
 
 
-V_REX = VRex()
+if __name__ == 'TBD':
+    V_REX = VRex()
 
-
-V_REX.keep_driving_by_controller()
+    V_REX.keep_driving_by_controller()

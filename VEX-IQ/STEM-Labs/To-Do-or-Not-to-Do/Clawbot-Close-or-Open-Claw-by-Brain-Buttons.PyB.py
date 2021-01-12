@@ -15,23 +15,23 @@ class Clawbot:
             )
 
 
-CLAWBOT = Clawbot()
+if __name__ == 'TBD':
+    CLAWBOT = Clawbot()
 
+    while True:
+        if CLAWBOT.brain.buttonDown.pressing():
+            CLAWBOT.claw_motor.spin(
+                DirectionType.REV,   # dir
+                None,   # velocity
+                VelocityUnits.PCT   # velocityUnit
+            )
 
-while True:
-    if CLAWBOT.brain.buttonDown.pressing():
-        CLAWBOT.claw_motor.spin(
-            DirectionType.REV,   # dir
-            None,   # velocity
-            VelocityUnits.PCT   # velocityUnit
-        )
+        elif CLAWBOT.brain.buttonUp.pressing():
+            CLAWBOT.claw_motor.spin(
+                DirectionType.FWD,   # dir
+                None,   # velocity
+                VelocityUnits.PCT   # velocityUnit
+            )
 
-    elif CLAWBOT.brain.buttonUp.pressing():
-        CLAWBOT.claw_motor.spin(
-            DirectionType.FWD,   # dir
-            None,   # velocity
-            VelocityUnits.PCT   # velocityUnit
-        )
-
-    else:
-        CLAWBOT.claw_motor.stop(BrakeType.HOLD)
+        else:
+            CLAWBOT.claw_motor.stop(BrakeType.HOLD)

@@ -52,48 +52,48 @@ class Clawbot:
             )
 
 
-CLAWBOT = Clawbot()
+if __name__ == 'TBD':
+    CLAWBOT = Clawbot()
 
-
-for _ in range(10):
-    CLAWBOT.arm_motor.spin_for(
-        DirectionType.FWD,   # dir
-        300,   # rotation
-        RotationUnits.DEG,   # rotationUnit
-        100,   # velocity
-        VelocityUnits.PCT,   # velocityUnit
-        True   # waitForCompletion
-    )
-
-    CLAWBOT.drivetrain.turn_for(
-        TurnType.RIGHT,   # turnType
-        90,   # angle
-        RotationUnits.DEG,   # rotationUnit
-        100,   # velocity
-        VelocityUnits.PCT,   # velocityUnit
-        True   # waitForCompletion
-    )
-
-    for _ in range(9):
-        CLAWBOT.drivetrain.turn_for(
-            TurnType.LEFT,   # turnType
-            10,   # angle
+    for _ in range(10):
+        CLAWBOT.arm_motor.spin_for(
+            DirectionType.FWD,   # dir
+            300,   # rotation
             RotationUnits.DEG,   # rotationUnit
             100,   # velocity
             VelocityUnits.PCT,   # velocityUnit
             True   # waitForCompletion
         )
 
-        wait(
-            0.5,   # time
-            TimeUnits.SEC   # timeUnit
+        CLAWBOT.drivetrain.turn_for(
+            TurnType.RIGHT,   # turnType
+            90,   # angle
+            RotationUnits.DEG,   # rotationUnit
+            100,   # velocity
+            VelocityUnits.PCT,   # velocityUnit
+            True   # waitForCompletion
         )
 
-    CLAWBOT.arm_motor.spin_for(
-        DirectionType.REV,   # dir
-        300,   # rotation
-        RotationUnits.DEG,   # rotationUnit
-        100,   # velocity
-        VelocityUnits.PCT,   # velocityUnit
-        True   # waitForCompletion
-    )
+        for _ in range(9):
+            CLAWBOT.drivetrain.turn_for(
+                TurnType.LEFT,   # turnType
+                10,   # angle
+                RotationUnits.DEG,   # rotationUnit
+                100,   # velocity
+                VelocityUnits.PCT,   # velocityUnit
+                True   # waitForCompletion
+            )
+
+            wait(
+                0.5,   # time
+                TimeUnits.SEC   # timeUnit
+            )
+
+        CLAWBOT.arm_motor.spin_for(
+            DirectionType.REV,   # dir
+            300,   # rotation
+            RotationUnits.DEG,   # rotationUnit
+            100,   # velocity
+            VelocityUnits.PCT,   # velocityUnit
+            True   # waitForCompletion
+        )

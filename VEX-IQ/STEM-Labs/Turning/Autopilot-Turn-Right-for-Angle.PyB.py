@@ -39,14 +39,14 @@ class Autopilot:
             )
 
 
-AUTOPILOT = Autopilot()
+if __name__ == 'TBD':
+    AUTOPILOT = Autopilot()
 
-
-AUTOPILOT.drivetrain.turn_for(
-    TurnType.RIGHT,   # turnType
-    90,   # angle
-    RotationUnits.DEG,   # rotationUnits
-    100,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
+    AUTOPILOT.drivetrain.turn_for(
+        TurnType.RIGHT,   # turnType
+        90,   # angle
+        RotationUnits.DEG,   # rotationUnits
+        100,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )

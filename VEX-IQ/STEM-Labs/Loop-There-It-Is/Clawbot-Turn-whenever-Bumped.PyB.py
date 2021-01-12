@@ -46,23 +46,23 @@ class Clawbot:
         self.bumper_switch = Bumper(self.BUMPER_SWITCH_PORT)
 
 
-CLAWBOT = Clawbot()
+if __name__ == 'TBD':
+    CLAWBOT = Clawbot()
 
+    while True:
+        if CLAWBOT.bumper_switch.pressing():
+            CLAWBOT.drivetrain.turn_for(
+                TurnType.RIGHT,   # turnType
+                90,   # angle
+                RotationUnits.DEG,   # rotationUnits
+                None,   # velocity
+                VelocityUnits.PCT,   # velocityUnit
+                True   # waitForCompletion
+            )
 
-while True:
-    if CLAWBOT.bumper_switch.pressing():
-        CLAWBOT.drivetrain.turn_for(
-            TurnType.RIGHT,   # turnType
-            90,   # angle
-            RotationUnits.DEG,   # rotationUnits
-            None,   # velocity
-            VelocityUnits.PCT,   # velocityUnit
-            True   # waitForCompletion
-        )
-
-    else:
-        CLAWBOT.drivetrain.drive(
-            DirectionType.FWD,   # directionType
-            None,   # velocity
-            VelocityUnits.PCT   # velocityUnit
-        )
+        else:
+            CLAWBOT.drivetrain.drive(
+                DirectionType.FWD,   # directionType
+                None,   # velocity
+                VelocityUnits.PCT   # velocityUnit
+            )

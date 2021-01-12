@@ -39,24 +39,24 @@ class Clawbot:
             )
 
 
-CLAWBOT = Clawbot()
+if __name__ == 'TBD':
+    CLAWBOT = Clawbot()
 
+    for _ in range(4):
+        CLAWBOT.drivetrain.drive_for(
+            DirectionType.FWD,   # directionType
+            300,   # distance
+            DistanceUnits.MM,   # distanceUnit
+            None,   # velocity
+            VelocityUnits.PCT,   # velocityUnit
+            True   # waitForCompletion
+        )
 
-for _ in range(4):
-    CLAWBOT.drivetrain.drive_for(
-        DirectionType.FWD,   # directionType
-        300,   # distance
-        DistanceUnits.MM,   # distanceUnit
-        None,   # velocity
-        VelocityUnits.PCT,   # velocityUnit
-        True   # waitForCompletion
-    )
-
-    CLAWBOT.drivetrain.turn_for(
-        TurnType.RIGHT,   # turnType
-        90,   # angle
-        RotationUnits.DEG,   # rotationUnit
-        None,   # velocity
-        VelocityUnits.PCT,   # velocityUnit
-        True   # waitForCompletion
-    )
+        CLAWBOT.drivetrain.turn_for(
+            TurnType.RIGHT,   # turnType
+            90,   # angle
+            RotationUnits.DEG,   # rotationUnit
+            None,   # velocity
+            VelocityUnits.PCT,   # velocityUnit
+            True   # waitForCompletion
+        )

@@ -28,35 +28,35 @@ class Autopilot:
             )
 
 
-AUTOPILOT = Autopilot()
+if __name__ == 'TBD':
+    AUTOPILOT = Autopilot()
 
+    AUTOPILOT.drivetrain.drive_until(
+        50,   # power
+        127   # distance_mm (5 inches)
+    )
 
-AUTOPILOT.drivetrain.drive_until(
-    50,   # power
-    127   # distance_mm (5 inches)
-)
+    AUTOPILOT.drivetrain.turn_until(
+        50,   # power
+        -90   # angle_deg: positive to turn left, negative to turn right
+    )
 
-AUTOPILOT.drivetrain.turn_until(
-    50,   # power
-    -90   # angle_deg: positive to turn left, negative to turn right
-)
+    AUTOPILOT.drivetrain.drive_until(
+        25,   # power
+        -127   # distance_mm (5 inches)
+    )
 
-AUTOPILOT.drivetrain.drive_until(
-    25,   # power
-    -127   # distance_mm (5 inches)
-)
+    AUTOPILOT.drivetrain.turn_until(
+        75,   # power
+        90   # angle_deg: positive to turn left, negative to turn right
+    )
 
-AUTOPILOT.drivetrain.turn_until(
-    75,   # power
-    90   # angle_deg: positive to turn left, negative to turn right
-)
+    AUTOPILOT.drivetrain.drive_until(
+        75,   # power
+        127   # distance_mm (5 inches)
+    )
 
-AUTOPILOT.drivetrain.drive_until(
-    75,   # power
-    127   # distance_mm (5 inches)
-)
-
-AUTOPILOT.drivetrain.turn_until(
-    25,   # power
-    -90   # angle_deg: positive to turn left, negative to turn right
-)
+    AUTOPILOT.drivetrain.turn_until(
+        25,   # power
+        -90   # angle_deg: positive to turn left, negative to turn right
+    )

@@ -40,59 +40,59 @@ class Autopilot:
             )
 
 
-AUTOPILOT = Autopilot()
+if __name__ == 'TBD':
+    AUTOPILOT = Autopilot()
 
+    AUTOPILOT.drivetrain.drive_for(
+        DirectionType.FWD,   # directionType
+        5,   # distance
+        DistanceUnits.IN,   # distanceUnit
+        50,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-AUTOPILOT.drivetrain.drive_for(
-    DirectionType.FWD,   # directionType
-    5,   # distance
-    DistanceUnits.IN,   # distanceUnit
-    50,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
+    AUTOPILOT.drivetrain.turn_for(
+        TurnType.RIGHT,   # turnType
+        90,   # angle
+        RotationUnits.DEG,   # rotationUnits
+        50,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-AUTOPILOT.drivetrain.turn_for(
-    TurnType.RIGHT,   # turnType
-    90,   # angle
-    RotationUnits.DEG,   # rotationUnits
-    50,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
+    AUTOPILOT.drivetrain.drive_for(
+        DirectionType.REV,   # directionType
+        5,   # distance
+        DistanceUnits.IN,   # distanceUnit
+        25,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-AUTOPILOT.drivetrain.drive_for(
-    DirectionType.REV,   # directionType
-    5,   # distance
-    DistanceUnits.IN,   # distanceUnit
-    25,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
+    AUTOPILOT.drivetrain.turn_for(
+        TurnType.LEFT,   # turnType
+        90,   # angle
+        RotationUnits.DEG,   # rotationUnits
+        75,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-AUTOPILOT.drivetrain.turn_for(
-    TurnType.LEFT,   # turnType
-    90,   # angle
-    RotationUnits.DEG,   # rotationUnits
-    75,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
+    AUTOPILOT.drivetrain.drive_for(
+        DirectionType.FWD,   # directionType
+        5,   # distance
+        DistanceUnits.IN,   # distanceUnit
+        75,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-AUTOPILOT.drivetrain.drive_for(
-    DirectionType.FWD,   # directionType
-    5,   # distance
-    DistanceUnits.IN,   # distanceUnit
-    75,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
-
-AUTOPILOT.drivetrain.turn_for(
-    TurnType.RIGHT,   # turnType
-    90,   # angle
-    RotationUnits.DEG,   # rotationUnits
-    25,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
+    AUTOPILOT.drivetrain.turn_for(
+        TurnType.RIGHT,   # turnType
+        90,   # angle
+        RotationUnits.DEG,   # rotationUnits
+        25,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )

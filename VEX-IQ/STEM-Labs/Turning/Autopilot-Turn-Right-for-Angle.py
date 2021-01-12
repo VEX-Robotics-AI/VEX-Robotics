@@ -28,10 +28,10 @@ class Autopilot:
             )
 
 
-AUTOPILOT = Autopilot()
+if __name__ == 'TBD':
+    AUTOPILOT = Autopilot()
 
-
-AUTOPILOT.drivetrain.turn_until(
-    100,   # power
-    -90   # angle_deg: positive to turn left, negative to turn right
-)
+    AUTOPILOT.drivetrain.turn_until(
+        100,   # power
+        -90   # angle_deg: positive to turn left, negative to turn right
+    )

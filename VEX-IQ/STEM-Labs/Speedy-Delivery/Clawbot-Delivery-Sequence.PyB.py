@@ -66,75 +66,75 @@ class Clawbot:
         )
 
 
-CLAWBOT = Clawbot()
+if __name__ == 'TBD':
+    CLAWBOT = Clawbot()
 
+    # open the Claw 75 degrees
+    CLAWBOT.claw_motor.spin_for(
+        DirectionType.REV,   # dir
+        75,   # rotation
+        RotationUnits.DEG,   # rotationUnit
+        None,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-# open the Claw 75 degrees
-CLAWBOT.claw_motor.spin_for(
-    DirectionType.REV,   # dir
-    75,   # rotation
-    RotationUnits.DEG,   # rotationUnit
-    None,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
+    # drive forward 150 mm to approach the object
+    CLAWBOT.drivetrain.drive_for(
+        DirectionType.FWD,   # directionType
+        150,   # distance
+        DistanceUnits.MM,   # distanceUnit
+        None,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-# drive forward 150 mm to approach the object
-CLAWBOT.drivetrain.drive_for(
-    DirectionType.FWD,   # directionType
-    150,   # distance
-    DistanceUnits.MM,   # distanceUnit
-    None,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
+    # close the Claw 60 degrees to grab the object
+    CLAWBOT.claw_motor.spin_for(
+        DirectionType.FWD,   # dir
+        60,   # rotation
+        RotationUnits.DEG,   # rotationUnit
+        None,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-# close the Claw 60 degrees to grab the object
-CLAWBOT.claw_motor.spin_for(
-    DirectionType.FWD,   # dir
-    60,   # rotation
-    RotationUnits.DEG,   # rotationUnit
-    None,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
+    # raise the Arm 315 degrees to lift the object
+    CLAWBOT.arm_motor.spin_for(
+        DirectionType.FWD,   # dir
+        315,   # rotation
+        RotationUnits.DEG,   # rotationUnit
+        None,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-# raise the Arm 315 degrees to lift the object
-CLAWBOT.arm_motor.spin_for(
-    DirectionType.FWD,   # dir
-    315,   # rotation
-    RotationUnits.DEG,   # rotationUnit
-    None,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
+    # drive in reverse 150 mm to move the object to a new location
+    CLAWBOT.drivetrain.drive_for(
+        DirectionType.REV,   # directionType
+        150,   # distance
+        DistanceUnits.MM,   # distanceUnit
+        None,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-# drive in reverse 150 mm to move the object to a new location
-CLAWBOT.drivetrain.drive_for(
-    DirectionType.REV,   # directionType
-    150,   # distance
-    DistanceUnits.MM,   # distanceUnit
-    None,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
+    # lower the Arm 315 degrees to place the object back down
+    CLAWBOT.arm_motor.spin_for(
+        DirectionType.REV,   # dir
+        315,   # rotation
+        RotationUnits.DEG,   # rotationUnit
+        None,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )
 
-# lower the Arm 315 degrees to place the object back down
-CLAWBOT.arm_motor.spin_for(
-    DirectionType.REV,   # dir
-    315,   # rotation
-    RotationUnits.DEG,   # rotationUnit
-    None,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
-
-# open the Claw 60 degrees to release the object
-CLAWBOT.claw_motor.spin_for(
-    DirectionType.REV,   # dir
-    60,   # rotation
-    RotationUnits.DEG,   # rotationUnit
-    None,   # velocity
-    VelocityUnits.PCT,   # velocityUnit
-    True   # waitForCompletion
-)
+    # open the Claw 60 degrees to release the object
+    CLAWBOT.claw_motor.spin_for(
+        DirectionType.REV,   # dir
+        60,   # rotation
+        RotationUnits.DEG,   # rotationUnit
+        None,   # velocity
+        VelocityUnits.PCT,   # velocityUnit
+        True   # waitForCompletion
+    )

@@ -163,15 +163,14 @@ class Clawbot:
             self.grab_or_release_object_by_controller()
 
 
-CLAWBOT = Clawbot()
+if __name__ == 'TBD':
+    CLAWBOT = Clawbot()
 
+    while True:
+        CLAWBOT.drive_once_by_controller()
+        CLAWBOT.lower_or_raise_arm_once_by_controller()
+        CLAWBOT.grab_or_release_object_by_controller()
 
-while True:
-    CLAWBOT.drive_once_by_controller()
-    CLAWBOT.lower_or_raise_arm_once_by_controller()
-    CLAWBOT.grab_or_release_object_by_controller()
-
-
-# run_in_thread(CLAWBOT.keep_lowering_or_raising_arm_by_controller)
-# run_in_thread(CLAWBOT.keep_grabbing_or_releasing_objects_by_controller)
-# CLAWBOT.keep_driving_by_controller()
+    # run_in_thread(CLAWBOT.keep_lowering_or_raising_arm_by_controller)
+    # run_in_thread(CLAWBOT.keep_grabbing_or_releasing_objects_by_controller)
+    # CLAWBOT.keep_driving_by_controller()
