@@ -22,6 +22,7 @@ class Allie:
     REAR_RIGHT_MOTOR_REVERSE_POLARITY = True
 
     MOTOR_ROTATION_RESOLUTION_DEGS = 10
+    MOTOR_VELOCITY_PCT = 100
 
     CONTROLLER_DEADBAND = 3   # seconds
 
@@ -85,7 +86,7 @@ class Allie:
                 DirectionType.FWD,   # dir
                 self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
-                100,   # velocity
+                self.MOTOR_VELOCITY_PCT,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
                 True   # waitForCompletion
             )
@@ -95,7 +96,7 @@ class Allie:
                 DirectionType.REV,   # dir
                 self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
-                100,   # velocity
+                self.MOTOR_VELOCITY_PCT,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
                 True   # waitForCompletion
             )
@@ -105,7 +106,7 @@ class Allie:
                 DirectionType.FWD,   # dir
                 self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
-                100,   # velocity
+                self.MOTOR_VELOCITY_PCT,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
                 True   # waitForCompletion
             )
@@ -115,7 +116,7 @@ class Allie:
                 DirectionType.REV,   # dir
                 self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
-                100,   # velocity
+                self.MOTOR_VELOCITY_PCT,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
                 True   # waitForCompletion
             )
@@ -125,7 +126,7 @@ class Allie:
                 DirectionType.FWD,   # dir
                 self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
-                100,   # velocity
+                self.MOTOR_VELOCITY_PCT,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
                 True   # waitForCompletion
             )
@@ -135,7 +136,7 @@ class Allie:
                 DirectionType.REV,   # dir
                 self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
-                100,   # velocity
+                self.MOTOR_VELOCITY_PCT,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
                 True   # waitForCompletion
             )
@@ -145,7 +146,7 @@ class Allie:
                 DirectionType.FWD,   # dir
                 self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
-                100,   # velocity
+                self.MOTOR_VELOCITY_PCT,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
                 True   # waitForCompletion
             )
@@ -155,10 +156,35 @@ class Allie:
                 DirectionType.REV,   # dir
                 self.MOTOR_ROTATION_RESOLUTION_DEGS,   # rotation
                 RotationUnits.DEG,   # rotationUnit
-                100,   # velocity
+                self.MOTOR_VELOCITY_PCT,   # velocity
                 VelocityUnits.PCT,   # velocityUnit
                 True   # waitForCompletion
             )
+
+        a_velocity = self.controller.axisA.position()
+        d_velocity = self.controller.axisD.position()
+
+        self.front_left_motor.spin(
+            DirectionType.FWD,   # dir
+            a_velocity,   # velocity
+            VelocityUnits.PCT   # velocityUnit
+        )
+        self.rear_right_motor.spin(
+            DirectionType.FWD,   # dir
+            a_velocity,   # velocity
+            VelocityUnits.PCT   # velocityUnit
+        )
+
+        self.front_right_motor.spin(
+            DirectionType.FWD,   # dir
+            d_velocity,   # velocity
+            VelocityUnits.PCT   # velocityUnit
+        )
+        self.rear_left_motor.spin(
+            DirectionType.FWD,   # dir
+            d_velocity,   # velocity
+            VelocityUnits.PCT   # velocityUnit
+        )
 
     def keep_driving_by_controller(self):
         while True:
