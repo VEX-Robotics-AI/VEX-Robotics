@@ -1,5 +1,5 @@
 {
-  "editor.rulers": [79, 88, 100, 120],
+  "editor.rulers": [79],
 
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
@@ -8,7 +8,7 @@
   "python.linting.pydocstyleEnabled": false,
   "python.linting.pycodestyleEnabled": true,
   "python.linting.pylamaEnabled": true,
-  "python.linting.banditEnabled": false,   // requires Py3
+  "python.linting.banditEnabled": true,
 
-  "python.pythonPath": "/usr/bin/python2"
+  "python.pythonPath": "/usr/local/bin/python3"
 }
