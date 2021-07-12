@@ -10,5 +10,5 @@
   "python.linting.pylamaEnabled": true,
   "python.linting.banditEnabled": true,
 
-  "python.pythonPath": "/usr/local/bin/python3"
+  "python.defaultInterpreterPath": "/usr/local/bin/python3"
 }
