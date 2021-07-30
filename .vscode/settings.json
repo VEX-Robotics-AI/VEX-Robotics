@@ -1,12 +1,29 @@
 {
-  "editor.rulers": [79, 88, 100, 120],
+  "editor.rulers": [79],
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/.mypy_cache": true,
+    "**/*.pyc": {"when": "$(basename).py"}, 
+    "**/__pycache__": true,
+    "**/.ropeproject": true,
+  },
 
   "python.linting.enabled": true,
+
   "python.linting.pylintEnabled": true,
+
   "python.linting.flake8Enabled": true,
+
   "python.linting.mypyEnabled": true,
-  "python.linting.pydocstyleEnabled": false,
+
+  "python.linting.pydocstyleEnabled": true,
+
   "python.linting.pycodestyleEnabled": true,
+
+  "python.linting.prospectorEnabled": true,
+
   "python.linting.pylamaEnabled": true,
-  "python.linting.banditEnabled": true
+
+  "python.linting.banditEnabled": true,
 }
