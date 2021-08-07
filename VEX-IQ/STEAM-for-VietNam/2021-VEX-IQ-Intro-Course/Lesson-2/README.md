@@ -1,1 +1,1 @@
-# Bài học số 2: Điều khiển VEX IQ bằng Python
+# Bài học số 2: Chuyển động Cơ bản
