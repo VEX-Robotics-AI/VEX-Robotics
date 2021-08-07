@@ -13,6 +13,7 @@
 
   "python.linting.pylintEnabled": true,
   "python.linting.pylintArgs": [
+    "--disable", "global-statement",
     "--disable", "invalid-name",
     "--disable", "missing-function-docstring",
     "--disable", "no-member",
