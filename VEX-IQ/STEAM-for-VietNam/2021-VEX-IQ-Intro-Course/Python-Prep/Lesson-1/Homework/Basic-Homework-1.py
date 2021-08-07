@@ -4,6 +4,11 @@ rồi in ra màn hình một câu giới thiệu về bạn
 """
 
 
+def introduce(my_name: str, my_age: int):
+    print(f"Hi, my name is {my_name} and I am {my_age} years old.")
+
+
 name = "Antoni"
 age = 7
-print(f"Hi, my name is {name} and I am {age} years old.")
+
+introduce(my_name=name, my_age=age)
