@@ -2,7 +2,7 @@
 http://bit.ly/S4V_CS201_Auto_Moving_Dancing_Robot
 https://www.robotmesh.com/studio/60c641dc5ba6e20556d85fd8
 
-Bài toán: Dùng lại bài thực hành 2,
+Dùng lại bài thực hành 2,
 hãy cho robot di chuyển ngẫu nhiên và mỗi khi chạm vào tường
 robot sẽ lùi lại 20cm, rẽ trái 60 độ và nhảy múa,
 sau đó tiếp tục di chuyển ngẫu nhiên.
