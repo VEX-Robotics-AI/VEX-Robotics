@@ -17,7 +17,7 @@
 
   "python.linting.mypyEnabled": true,
 
-  "python.linting.pydocstyleEnabled": true,
+  "python.linting.pydocstyleEnabled": false,
 
   "python.linting.pycodestyleEnabled": true,
 
@@ -26,4 +26,7 @@
   "python.linting.pylamaEnabled": true,
 
   "python.linting.banditEnabled": true,
+  "python.linting.banditArgs": [
+    "--skip B311"
+  ]
 }
