@@ -4,7 +4,11 @@ a có chia hết cho b hay không
 """
 
 
+def is_divisible_by(x: int, y: int) -> bool:
+    return x % y == 0
+
+
 a = 109
 b = 10
 
-print(a % b == 0)
+print(is_divisible_by(x=a, y=b))
