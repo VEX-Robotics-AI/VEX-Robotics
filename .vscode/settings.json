@@ -12,18 +12,31 @@
   "python.linting.enabled": true,
 
   "python.linting.pylintEnabled": true,
+  "python.linting.pylintArgs": [
+    "--disable", "c-extension-no-member",
+    "--disable", "global-statement",
+    "--disable", "invalid-name",
+    "--disable", "missing-function-docstring",
+    "--disable", "no-member",
+  ],
 
   "python.linting.flake8Enabled": true,
 
   "python.linting.mypyEnabled": true,
 
-  "python.linting.pydocstyleEnabled": true,
+  "python.linting.pydocstyleEnabled": false,
 
   "python.linting.pycodestyleEnabled": true,
 
   "python.linting.prospectorEnabled": true,
 
   "python.linting.pylamaEnabled": true,
+  "python.linting.pylamaArgs": [
+    "--ignore C901"  
+  ],
 
   "python.linting.banditEnabled": true,
+  "python.linting.banditArgs": [
+    "--skip B311"
+  ]
 }
