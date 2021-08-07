@@ -12,6 +12,11 @@
   "python.linting.enabled": true,
 
   "python.linting.pylintEnabled": true,
+  "python.linting.pylintArgs": [
+    "--disable", "invalid-name",
+    "--disable", "missing-function-docstring",
+    "--disable", "no-member",
+  ],
 
   "python.linting.flake8Enabled": true,
 
