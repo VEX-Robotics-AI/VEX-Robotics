@@ -5,11 +5,16 @@ Viết một hàm
 """
 
 
+def find_longest_str(list_of_strs: list[str]) -> str:
+    result = None
+
+    for s in list_of_strs:
+        if (result is None) or (len(s) > len(result)):
+            result = s
+
+    return result
+
+
 strs = ["90", "name", "*"]
-result = None
 
-for s in strs:
-    if (result is None) or (len(s) > len(result)):
-        result = s
-
-print(f"The longest string is '{result}'.")
+print(f"The longest string is '{find_longest_str(strs)}'.")
