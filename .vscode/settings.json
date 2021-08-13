@@ -17,6 +17,7 @@
     "--disable", "global-statement",
     "--disable", "invalid-name",
     "--disable", "missing-function-docstring",
+    "--disable", "missing-module-docstring",
     "--disable", "no-member",
   ],
 
