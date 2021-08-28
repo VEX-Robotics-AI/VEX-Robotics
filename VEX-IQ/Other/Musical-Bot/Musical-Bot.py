@@ -52,7 +52,6 @@ jingle_bells_song = [
     [NoteType.F, 4, 0.25],
     [NoteType.D, 4, 0.25],
     [NoteType.C, 4, 1]
-    # homework: add more notes to the song
 ]
 
 
