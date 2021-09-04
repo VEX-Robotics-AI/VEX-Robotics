@@ -1,4 +1,5 @@
 from sys import run_in_thread
+
 from vex import (
     Brain,
     BrakeType,
