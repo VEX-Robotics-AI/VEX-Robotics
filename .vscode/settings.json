@@ -21,6 +21,7 @@
     "--disable", "missing-module-docstring",
     "--disable", "no-member",
     "--disable", "no-name-in-module",
+    "--disable", "too-many-instance-attributes",
   ],
 
   "python.linting.flake8Enabled": true,
