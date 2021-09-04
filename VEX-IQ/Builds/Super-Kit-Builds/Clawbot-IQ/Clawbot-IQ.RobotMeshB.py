@@ -1,25 +1,26 @@
-from drivetrain import Drivetrain
-from vex import \
-    Brain, \
-    BrakeType, \
-    Bumper, \
-    Colorsensor, \
-    Controller, \
-    DirectionType, \
-    DistanceUnits, \
-    Gyro, \
-    Motor, \
-    Ports, \
-    Sonar, \
-    TimeUnits, \
-    Touchled, \
-    VelocityUnits
+# from sys import run_in_thread
 
-from sys import run_in_thread
+from drivetrain import Drivetrain
+from vex import (
+    Brain,
+    BrakeType,
+    Bumper,
+    Colorsensor,
+    Controller,
+    DirectionType,
+    DistanceUnits,
+    Gyro,
+    Motor,
+    Ports,
+    Sonar,
+    TimeUnits,
+    Touchled,
+    VelocityUnits
+)
 
 
 class Clawbot:
-    # drive base configs
+    # Drive Base configs
     LEFT_MOTOR_PORT = Ports.PORT1
     LEFT_MOTOR_REVERSE_POLARITY = False
 
@@ -31,6 +32,17 @@ class Clawbot:
     DISTANCE_UNIT = DistanceUnits.MM
     GEAR_RATIO = 1
 
+    # Arm motor configs
+    ARM_MOTOR_PORT = Ports.PORT10
+    ARM_MOTOR_REVERSE_POLARITY = False
+    ARM_MOTOR_VELOCITY_PERCENT = 30
+
+    # Claw motor configs
+    CLAW_MOTOR_PORT = Ports.PORT11
+    CLAW_MOTOR_REVERSE_POLARITY = False
+    CLAW_MOTOR_TIMEOUT_SECS = 3
+    CLAW_MOTOR_VELOCITY_PERCENT = 60
+
     # sensor configs
     TOUCH_LED_PORT = Ports.PORT2
     COLOR_SENSOR_PORT = Ports.PORT3
@@ -38,17 +50,7 @@ class Clawbot:
     DISTANCE_SENSOR_PORT = Ports.PORT7
     BUMPER_SWITCH_PORT = Ports.PORT8
 
-    # actuator configs
-    ARM_MOTOR_PORT = Ports.PORT10
-    ARM_MOTOR_REVERSE_POLARITY = False
-    ARM_MOTOR_VELOCITY = 30   # %
-
-    CLAW_MOTOR_PORT = Ports.PORT11
-    CLAW_MOTOR_REVERSE_POLARITY = False
-    CLAW_MOTOR_TIMEOUT_SECS = 3
-    CLAW_MOTOR_VELOCITY = 60   # %
-
-    # controller configs
+    # Controller configs
     CONTROLLER_DEADBAND = 3
 
     def __init__(self):
@@ -57,12 +59,12 @@ class Clawbot:
         self.left_motor = \
             Motor(
                 self.LEFT_MOTOR_PORT,   # index
-                self.LEFT_MOTOR_REVERSE_POLARITY   # reverse
+                self.LEFT_MOTOR_REVERSE_POLARITY   # reverse polarity?
             )
         self.right_motor = \
             Motor(
                 self.RIGHT_MOTOR_PORT,   # index
-                self.RIGHT_MOTOR_REVERSE_POLARITY   # reverse
+                self.RIGHT_MOTOR_REVERSE_POLARITY   # reverse polarity?
             )
         self.drivetrain = \
             Drivetrain(
@@ -73,6 +75,22 @@ class Clawbot:
                 self.DISTANCE_UNIT,   # distanceUnit
                 self.GEAR_RATIO   # gear_ratio
             )
+
+        self.arm_motor = \
+            Motor(
+                self.ARM_MOTOR_PORT,   # index
+                self.ARM_MOTOR_REVERSE_POLARITY   # reverse polarity?
+            )
+
+        self.claw_motor = \
+            Motor(
+                self.CLAW_MOTOR_PORT,   # index
+                self.CLAW_MOTOR_REVERSE_POLARITY   # reverse polarity?
+            )
+        self.claw_motor.set_timeout(
+            self.CLAW_MOTOR_TIMEOUT_SECS,   # time
+            TimeUnits.SEC   # timeUnit
+        )
 
         self.touch_led = Touchled(self.TOUCH_LED_PORT)
 
@@ -93,26 +111,10 @@ class Clawbot:
 
         self.bumper_switch = Bumper(self.BUMPER_SWITCH_PORT)
 
-        self.arm_motor = \
-            Motor(
-                self.ARM_MOTOR_PORT,   # index
-                self.ARM_MOTOR_REVERSE_POLARITY   # reverse
-            )
-
-        self.claw_motor = \
-            Motor(
-                self.CLAW_MOTOR_PORT,   # index
-                self.CLAW_MOTOR_REVERSE_POLARITY   # reverse
-            )
-        self.claw_motor.set_timeout(
-            self.CLAW_MOTOR_TIMEOUT_SECS,   # time
-            TimeUnits.SEC   # timeUnit
-        )
-
         self.controller = Controller()
         self.controller.set_deadband(self.CONTROLLER_DEADBAND)
 
-    def drive_once_by_controller(self):
+    def drive_by_controller(self):
         self.left_motor.spin(
             DirectionType.FWD,   # dir
             self.controller.axisA.position(),   # velocity
@@ -126,20 +128,20 @@ class Clawbot:
 
     def keep_driving_by_controller(self):
         while True:
-            self.drive_once_by_controller()
+            self.drive_by_controller()
 
-    def lower_or_raise_arm_once_by_controller(self):
+    def lower_or_raise_arm_by_controller(self):
         if self.controller.buttonLDown.pressing():
             self.arm_motor.spin(
                 DirectionType.REV,   # dir
-                self.ARM_MOTOR_VELOCITY,   # velocity
+                self.ARM_MOTOR_VELOCITY_PERCENT,   # velocity
                 VelocityUnits.PCT   # velocityUnit
             )
 
         elif self.controller.buttonLUp.pressing():
             self.arm_motor.spin(
                 DirectionType.FWD,   # dir
-                self.ARM_MOTOR_VELOCITY,   # velocity
+                self.ARM_MOTOR_VELOCITY_PERCENT,   # velocity
                 VelocityUnits.PCT   # velocityUnit
             )
 
@@ -148,20 +150,20 @@ class Clawbot:
 
     def keep_lowering_or_raising_arm_by_controller(self):
         while True:
-            self.lower_or_raise_arm_once_by_controller()
+            self.lower_or_raise_arm_by_controller()
 
     def grab_or_release_object_by_controller(self):
         if self.controller.buttonRDown.pressing():
             self.claw_motor.spin(
                 DirectionType.REV,   # dir
-                self.CLAW_MOTOR_VELOCITY,   # velocity
+                self.CLAW_MOTOR_VELOCITY_PERCENT,   # velocity
                 VelocityUnits.PCT   # velocityUnit
             )
 
         elif self.controller.buttonRUp.pressing():
             self.claw_motor.spin(
                 DirectionType.FWD,   # dir
-                self.CLAW_MOTOR_VELOCITY,   # velocity
+                self.CLAW_MOTOR_VELOCITY_PERCENT,   # velocity
                 VelocityUnits.PCT   # velocityUnit
             )
 
@@ -172,14 +174,15 @@ class Clawbot:
         while True:
             self.grab_or_release_object_by_controller()
 
+    def main(self):
+        while True:
+            self.drive_by_controller()
+            self.lower_or_raise_arm_by_controller()
+            self.grab_or_release_object_by_controller()
+
 
 CLAWBOT = Clawbot()
-
-
-while True:
-    CLAWBOT.drive_once_by_controller()
-    CLAWBOT.lower_or_raise_arm_once_by_controller()
-    CLAWBOT.grab_or_release_object_by_controller()
+CLAWBOT.main()
 
 
 # run_in_thread(CLAWBOT.keep_lowering_or_raising_arm_by_controller)
