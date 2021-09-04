@@ -16,9 +16,11 @@
     "--disable", "c-extension-no-member",
     "--disable", "global-statement",
     "--disable", "invalid-name",
+    "--disable", "missing-class-docstring",
     "--disable", "missing-function-docstring",
     "--disable", "missing-module-docstring",
     "--disable", "no-member",
+    "--disable", "no-name-in-module",
   ],
 
   "python.linting.flake8Enabled": true,
