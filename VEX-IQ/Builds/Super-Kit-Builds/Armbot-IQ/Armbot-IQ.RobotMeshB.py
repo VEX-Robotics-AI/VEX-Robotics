@@ -1,3 +1,4 @@
+# from sys import run_in_thread
 from vex import (
     Brain,
     BrakeType,
@@ -12,8 +13,6 @@ from vex import (
     Touchled,
     VelocityUnits
 )
-
-# from sys import run_in_thread
 
 
 class Armbot:
