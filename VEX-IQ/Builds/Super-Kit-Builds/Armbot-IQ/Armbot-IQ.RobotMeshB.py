@@ -130,7 +130,7 @@ class Armbot:
 
     def keep_controlling_shoulder_by_controller_axis_d(self):
         while True:
-            self.lower_or_raise_arm_once_by_controller()
+            self.control_shoulder_by_controller_axis_d()
 
     def control_elbow_by_controller_axis_a(self):
         self.elbow_motor.spin(
