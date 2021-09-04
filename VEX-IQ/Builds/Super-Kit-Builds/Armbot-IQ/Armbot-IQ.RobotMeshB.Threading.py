@@ -87,11 +87,17 @@ def keep_pivoting_base_by_controller_left_buttons():
 
 
 def control_shoulder_by_controller_axis_d():
-    SHOULDER_MOTOR.spin(
-        DirectionType.FWD,   # dir
-        CONTROLLER.axisD.position(),   # velocity
-        VelocityUnits.PCT   # velocityUnit
-    )
+    controller_axis_a_position = CONTROLLER.axisD.position()
+
+    if controller_axis_a_position:
+        SHOULDER_MOTOR.spin(
+            DirectionType.FWD,   # dir
+            controller_axis_a_position,   # velocity
+            VelocityUnits.PCT   # velocityUnit
+        )
+
+    else:
+        SHOULDER_MOTOR.stop(BrakeType.HOLD)
 
 
 def keep_controlling_shoulder_by_controller_axis_d():
@@ -100,11 +106,17 @@ def keep_controlling_shoulder_by_controller_axis_d():
 
 
 def control_elbow_by_controller_axis_a():
-    ELBOW_MOTOR.spin(
-        DirectionType.FWD,   # dir
-        CONTROLLER.axisA.position(),   # velocity
-        VelocityUnits.PCT   # velocityUnit
-    )
+    controller_axis_a_position = CONTROLLER.axisA.position()
+
+    if controller_axis_a_position:
+        ELBOW_MOTOR.spin(
+            DirectionType.FWD,   # dir
+            controller_axis_a_position,   # velocity
+            VelocityUnits.PCT   # velocityUnit
+        )
+
+    else:
+        ELBOW_MOTOR.stop(BrakeType.HOLD)
 
 
 def keep_controlling_elbow_by_controller_axis_a():
