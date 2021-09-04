@@ -122,22 +122,34 @@ class Armbot:
             self.pivot_base_by_controller_left_buttons()
 
     def control_shoulder_by_controller_axis_d(self):
-        self.shoulder_motor.spin(
-            DirectionType.FWD,   # dir
-            self.controller.axisD.position(),   # velocity
-            VelocityUnits.PCT   # velocityUnit
-        )
+        controller_axis_d_position = self.controller.axisD.position()
+
+        if controller_axis_d_position:
+            self.shoulder_motor.spin(
+                DirectionType.FWD,   # dir
+                controller_axis_d_position,   # velocity
+                VelocityUnits.PCT   # velocityUnit
+            )
+
+        else:
+            self.shoulder_motor.stop(BrakeType.HOLD)
 
     def keep_controlling_shoulder_by_controller_axis_d(self):
         while True:
             self.control_shoulder_by_controller_axis_d()
 
     def control_elbow_by_controller_axis_a(self):
-        self.elbow_motor.spin(
-            DirectionType.FWD,   # dir
-            self.controller.axisA.position(),   # velocity
-            VelocityUnits.PCT   # velocityUnit
-        )
+        controller_axis_a_position = self.controller.axisA.position()
+
+        if controller_axis_a_position:
+            self.elbow_motor.spin(
+                DirectionType.FWD,   # dir
+                controller_axis_a_position,   # velocity
+                VelocityUnits.PCT   # velocityUnit
+            )
+
+        else:
+            self.elbow_motor.stop(BrakeType.HOLD)
 
     def keep_controlling_elbow_by_controller_axis_a(self):
         while True:
