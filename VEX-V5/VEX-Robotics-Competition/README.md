@@ -1,1 +1,1 @@
-# VEX Robotics Challenge
+# VEX Robotics Competition (VRC)
