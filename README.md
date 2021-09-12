@@ -45,6 +45,8 @@ Resellers: [US](https://www.vexrobotics.com/how-to-order) | [International](http
 
 [Grants](https://www.roboticseducation.org/grants)
 
+[Competition History](https://www.roboticseducation.org/team-resources/competition-history)
+
 [VEX IQ Challenge (VIQC)](https://www.roboticseducation.org/vex-iq-challenge)
 
 
