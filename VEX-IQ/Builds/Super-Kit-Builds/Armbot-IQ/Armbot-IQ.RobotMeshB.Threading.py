@@ -110,7 +110,9 @@ def keep_controlling_shoulder_by_controller_axis_d():
 def control_elbow_by_controller_axis_a():
     controller_axis_a_position = CONTROLLER.axisA.position()
 
-    if controller_axis_a_position:
+    if ((controller_axis_a_position > 0) and
+            (not ELBOW_BUMPER_SWITCH.pressing())) or \
+            (controller_axis_a_position < 0):
         ELBOW_MOTOR.spin(
             DirectionType.FWD,   # dir
             controller_axis_a_position,   # velocity
