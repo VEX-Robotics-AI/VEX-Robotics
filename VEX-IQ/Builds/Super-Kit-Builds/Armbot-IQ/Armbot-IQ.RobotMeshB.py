@@ -124,7 +124,9 @@ class Armbot:
     def control_shoulder_by_controller_axis_d(self):
         controller_axis_d_position = self.controller.axisD.position()
 
-        if controller_axis_d_position:
+        if ((controller_axis_d_position > 0) and
+                (not self.base_bumper_switch.pressing())) or \
+                (controller_axis_d_position < 0):
             self.shoulder_motor.spin(
                 DirectionType.FWD,   # dir
                 controller_axis_d_position,   # velocity

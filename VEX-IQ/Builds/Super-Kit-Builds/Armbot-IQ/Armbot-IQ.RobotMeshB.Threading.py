@@ -87,12 +87,14 @@ def keep_pivoting_base_by_controller_left_buttons():
 
 
 def control_shoulder_by_controller_axis_d():
-    controller_axis_a_position = CONTROLLER.axisD.position()
+    controller_axis_d_position = CONTROLLER.axisD.position()
 
-    if controller_axis_a_position:
+    if ((controller_axis_d_position > 0) and
+            (not BASE_BUMPER_SWITCH.pressing())) or \
+            (controller_axis_d_position < 0):
         SHOULDER_MOTOR.spin(
             DirectionType.FWD,   # dir
-            controller_axis_a_position,   # velocity
+            controller_axis_d_position,   # velocity
             VelocityUnits.PCT   # velocityUnit
         )
 

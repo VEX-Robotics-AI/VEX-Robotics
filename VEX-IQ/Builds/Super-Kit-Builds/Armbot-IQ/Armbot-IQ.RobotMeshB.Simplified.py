@@ -49,10 +49,10 @@ def pivot_base_by_controller_left_buttons():
 
 # function for controlling the Shoulder
 def control_shoulder_by_controller_axis_d():
-    controller_axis_a_position = CONTROLLER.axisD.position()
+    controller_axis_d_position = CONTROLLER.axisD.position()
 
-    if controller_axis_a_position:
-        SHOULDER_MOTOR.spin(FORWARD, controller_axis_a_position, PERCENT)
+    if controller_axis_d_position:
+        SHOULDER_MOTOR.spin(FORWARD, controller_axis_d_position, PERCENT)
 
     else:
         SHOULDER_MOTOR.stop(BrakeType.HOLD)
