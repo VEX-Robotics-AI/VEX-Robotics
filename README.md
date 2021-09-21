@@ -1,5 +1,38 @@
 # VEX Robotics
 
+__Community contributions through GitHub pull requests
+are highly welcome and appreciated!!__—especially:
+- Personal robot inventions; and
+- Competition teams' design, code & demo materials over the years.
+
+This repository was created and is maintained by a father-and-children team
+based in Silicon Valley, consisting of:
+- __Lương Thế Vinh__ (Vinh Luong __@TheVinhLuong102__),
+an Industrial IoT AI scientist and product manager;
+- __Antoni Lương Phạm Anh Quân__ (Antoni Luong-Pham __@AntoniLuongPham__), born 2014; and
+- __Ariana Lương Phạm Hải An__ (Ariana Luong-Pham __@ArianaLuongPham__), born 2016.
+
+We intend this repository to be a comprehensive and open-to-the-community
+collection of programming code—mostly in Python, some in other languages—and
+related design and demo materials for/on robots based on various generations of
+VEX robotics platforms, such as:
+- VEX IQ;
+- VEX V5; and
+- VEX PRO.
+
+Generally, __@TheVinhLuong102__ takes care of the overall organization,
+documentation and maintenance of the repository, while __@AntoniLuongPham__ and
+__@ArianaLuongPham__ code the majority of the original programs.
+
+For each robot, we experiment extensively with various ways to program it.
+For example, we create and maintain multiple Python programs based on VEXcode
+Python and Robot Mesh's 1st-generation Python and 2nd-generation Python B APIs.
+
+For the sake of comprehensiveness, we maintain references to interesting robots
+that community members have invented and shared about on Facebook, GitHub and
+YouTube. Occasionally, we take copies of other developers' old programs
+(with due credits) and modify those with the latest modern libraries.
+
 
 [Building Instructions](https://www.vexrobotics.com/vex-downloads/builds)
 
@@ -44,6 +77,8 @@ Resellers: [US](https://www.vexrobotics.com/how-to-order) | [International](http
 [Fundraising Resources](https://www.roboticseducation.org/fundraising-resources)
 
 [Grants](https://www.roboticseducation.org/grants)
+
+[Competition History](https://www.roboticseducation.org/team-resources/competition-history)
 
 [VEX IQ Challenge (VIQC)](https://www.roboticseducation.org/vex-iq-challenge)
 
