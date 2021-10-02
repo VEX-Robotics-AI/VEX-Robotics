@@ -85,16 +85,14 @@ happy_birthay_song = [
 ]
 
 
-# init the VEX IQ brain
+# init Brain
 brain = Brain()
 
 
-# define a function to play a song
+# function to play a song
 def play_song(song):
-    for note in song:
-        note_type = note[0]
-        octave = note[1]
-        note_value = note[2]
+    for note_tuple in song:
+        note_type, octave, note_value = note_tuple
         brain.sound.play(note_type, octave, note_value)
 
 
