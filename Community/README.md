@@ -1,4 +1,10 @@
-# VEX Robotics Open-Source Software Ecosystem
+# Community: Persons
+
+(sorted alphabetically by family name)
+
+[Daniele "Danny" Benedettelli](Daniele-Benedettelli)
+
+[David Lechner (`DLech`)](DLech)
 
 
 ### [Dom Barter](https://github.com/dombarter)
