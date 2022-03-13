@@ -22,6 +22,7 @@
     "--disable", "no-member",
     "--disable", "no-name-in-module",
     "--disable", "too-many-instance-attributes",
+    "--disable", "wrong-import-order",
   ],
 
   "python.linting.flake8Enabled": true,
@@ -34,12 +35,12 @@
 
   "python.linting.prospectorEnabled": true,
 
-  "python.linting.pylamaEnabled": true,
+  "python.linting.pylamaEnabled": false,   // TODO: check
   "python.linting.pylamaArgs": [
     "--ignore C901"  
   ],
 
-  "python.linting.banditEnabled": true,
+  "python.linting.banditEnabled": false,   // TODO: check
   "python.linting.banditArgs": [
     "--skip B311"
   ]

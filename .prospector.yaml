@@ -1,3 +1,7 @@
+mccabe:
+  disable:
+    - MC0001
+
 pylint:
   disable:
     - chained-comparison

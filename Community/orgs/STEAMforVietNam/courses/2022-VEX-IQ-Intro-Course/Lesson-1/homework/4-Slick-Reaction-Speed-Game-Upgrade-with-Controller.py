@@ -1,18 +1,17 @@
 """
-TRÒ CHƠI THI PHẢN XẠ NHANH
-==========================
-Unit Test này yêu cầu mô hình Slick có gắn thêm Motors & Sensors
+TRÒ CHƠI THI PHẢN XẠ NHANH:
+PHIÊN BẢN NÂNG CAO VỚI CONTROLLER
+=================================
+Trò chơi này yêu cầu mô hình Slick có gắn thêm Motors & Sensors
+và Controller được kết nối với Brain qua dây cắm hoặc sóng radio
 """
-
-
-# *** TODO: UPGRADE ***
 
 
 # NHẬP CÁC ĐỐI TƯỢNG TỪ THƯ VIỆN
 # ==============================
 
 from vex import (
-    Brain, Motor, Bumper, Colorsensor, Gyro, Sonar, Touchled,
+    Brain, Motor, Bumper, Colorsensor, Controller, Gyro, Sonar, Touchled,
     Ports, FadeType, DEGREES, MM
 )
 from random import randint
@@ -23,7 +22,7 @@ from timer import Timer
 # ===========
 
 # thời gian chơi mỗi vòng (tính bằng giây)
-PLAY_TIME_IN_SECONDS = 60
+PLAY_TIME_IN_SECONDS = 120
 
 
 # KHỞI TẠO CÁC BỘ PHẬN ROBOT
@@ -59,6 +58,9 @@ touch_led_8.default_fade(FadeType.OFF)
 touch_led_11 = Touchled(Ports.PORT11)
 touch_led_11.brightness(100)
 touch_led_11.default_fade(FadeType.OFF)
+
+# khởi tạo bộ điều khiển từ xa
+ctl = Controller()
 
 
 # ĐỊNH NGHĨA CÁC HÀM
@@ -134,6 +136,16 @@ def interact_with_touch_led(touch_led, port_number):
     touch_led.off()
 
 
+# tương tác với một controller button nhất định
+def interact_with_controller_button(controller_button, button_name):
+    brain.screen.print_line(3, 'Ctl ' + button_name + ': press!')
+
+    while not controller_button.pressing():
+        pass
+
+    brain.screen.print_line(3, 'Ctl ' + button_name + ' pressed')
+
+
 # CHƯƠNG TRÌNH CHÍNH
 # ==================
 
@@ -149,19 +161,20 @@ while True:
     elapsed_time = 0
 
     while elapsed_time <= PLAY_TIME_IN_SECONDS:
-        brain.screen.print_line(
-            1,
-            'Score: ' + str(score) + ', ' +
-            'Time: ' + str(elapsed_time)
-        )
+        brain.screen.print_line(1,
+                                'Score: ' + str(score) + ', ' +
+                                'Time: ' + str(elapsed_time))
 
         # chơi âm thanh ngẫu nhiên trong lúc trò chơi diễn ra
         brain.sound.play_wave(randint(0, 15))
 
-        scenario = randint(1, 12)
+        scenario = randint(1, 20)
 
         if scenario == 1:
             interact_with_motor(motor_1, 1)
+
+        elif scenario == 2:
+            continue
 
         elif scenario == 3:
             interact_with_gyro_3()
@@ -189,6 +202,30 @@ while True:
 
         elif scenario == 12:
             interact_with_motor(motor_12, 12)
+
+        elif scenario == 13:
+            interact_with_controller_button(ctl.buttonEUp, 'E Up')
+
+        elif scenario == 14:
+            interact_with_controller_button(ctl.buttonEDown, 'E Down')
+
+        elif scenario == 15:
+            interact_with_controller_button(ctl.buttonFUp, 'F Up')
+
+        elif scenario == 16:
+            interact_with_controller_button(ctl.buttonFDown, 'F Down')
+
+        elif scenario == 17:
+            interact_with_controller_button(ctl.buttonLUp, 'L Up')
+
+        elif scenario == 18:
+            interact_with_controller_button(ctl.buttonLDown, 'L Down')
+
+        elif scenario == 19:
+            interact_with_controller_button(ctl.buttonRUp, 'R Up')
+
+        elif scenario == 20:
+            interact_with_controller_button(ctl.buttonRDown, 'R Down')
 
         elapsed_time = timer.elapsed_time()
         if elapsed_time <= PLAY_TIME_IN_SECONDS:
