@@ -25,7 +25,7 @@ brain = Brain()
 #                                                                             #
 #    Chú ý:                                                                   #
 #    - brain.sound là một instance thuộc lớp (class) BrainSound               #
-#    - hãy đọc hướng dẫn API của các lớp Brain, BrainSound và NoteType        #
+#    - hãy đọc hướng dẫn API của các lớp Brain, BrainSound & NoteType         #
 #      qua Robot Mesh Studio Help                                             #
 ###############################################################################
 brain.sound.play(NoteType.C)

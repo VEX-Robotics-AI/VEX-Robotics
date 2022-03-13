@@ -7,10 +7,8 @@
 # - đơn vị DEGREES                            #
 # - các hằng số hướng quay FORWARD và REVERSE #
 ###############################################
-from vex import (
-    Motor, Ports,
-    DEGREES, FORWARD, REVERSE
-)
+from vex import Motor, Ports, DEGREES, FORWARD, REVERSE
+
 
 # KHỞI TẠO CÁC BỘ PHẬN ROBOT
 # ==========================
