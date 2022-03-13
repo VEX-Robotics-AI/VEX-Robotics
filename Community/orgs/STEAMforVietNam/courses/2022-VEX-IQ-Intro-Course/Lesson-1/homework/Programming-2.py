@@ -1,3 +1,18 @@
+"""
+1. Hãy nhập các lớp (class) Brain và NoteType từ thư viện vex
+
+2. Hãy khởi tạo đối tượng brain
+
+3. Hãy dùng hàm (method) .play(...) của thuộc tính (attribute) brain.sound
+của đối tượng brain để chơi nốt nhạc NoteType.C
+
+Chú ý
+- brain.sound là một instance thuộc lớp (class) BrainSound
+- hãy đọc hướng dẫn API của các lớp Brain, BrainSound & NoteType
+qua Robot Mesh Studio Help
+"""
+
+
 # NHẬP CÁC ĐỐI TƯỢNG TỪ THƯ VIỆN
 # ==============================
 
