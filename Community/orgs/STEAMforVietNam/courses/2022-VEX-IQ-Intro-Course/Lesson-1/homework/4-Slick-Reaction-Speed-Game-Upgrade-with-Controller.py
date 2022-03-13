@@ -1,3 +1,11 @@
+###############################################################################
+# Hãy hoàn thiện hàm interact_with_controller_button                          #
+# ở khu vực ĐỊNH NGHĨA CÁC HÀM                                                #
+# để hoàn thiện chương trình Python cho phiên bản nâng cao                    #
+# của trò chơi Thi Phản Xạ Nhanh                                              #
+###############################################################################
+
+
 """
 TRÒ CHƠI THI PHẢN XẠ NHANH:
 PHIÊN BẢN NÂNG CAO VỚI CONTROLLER
@@ -136,13 +144,40 @@ def interact_with_touch_led(touch_led, port_number):
     touch_led.off()
 
 
+###############################################################################
+# Hãy hoàn thiện hàm interact_with_controller_button dưới đây.                #
+#                                                                             #
+# Chú ý: giữ nguyên (không thay đổi bất kỳ ký tự nào) dòng định nghĩa hàm     #
+#   `def interact_with_controller_button(controller_button, button_name):`    #
+###############################################################################
+
 # tương tác với một controller button nhất định
 def interact_with_controller_button(controller_button, button_name):
+    ###########################################################################
+    # Đầu tiên, in ra ở dòng số 3 của Brain một câu                           #
+    # "Ctl <giá trị biến button_name>: press!",                               #
+    # ví dụ như khi biến button_name = "E Down" thì in                        #
+    # "Ctl E Down: press!"                                                    #
+    #                                                                         #
+    # Chú ý in chuỗi ký tự thật chính xác như chỉ dẫn trên!                   #
+    ###########################################################################
     brain.screen.print_line(3, 'Ctl ' + button_name + ': press!')
 
+    ###########################################################################
+    # Tiếp theo, dùng vòng lặp `while not ...: pass`                          #
+    # để chờ tới khi phím được biểu thị bởi biến <controller_button> được bấm #
+    ###########################################################################
     while not controller_button.pressing():
         pass
 
+    ###########################################################################
+    # Cuối cùng, in ra ở dòng số 3 của Brain một câu                          #
+    # "Ctl <giá trị biến button_name> pressed",                               #
+    # ví dụ như khi biến button_name = "E Down" thì in                        #
+    # "Ctl E Down pressed"                                                    #
+    #                                                                         #
+    # Chú ý in chuỗi ký tự thật chính xác như chỉ dẫn trên!                   #
+    ###########################################################################
     brain.screen.print_line(3, 'Ctl ' + button_name + ' pressed')
 
 
