@@ -5,7 +5,12 @@ Nếu bumper không được nhấn thì đèn TouchLED sẽ bị tắt.
 """
 
 
-from vex import Ports, Bumper, Touchled, ColorHue
+# NHẬP CÁC ĐỐI TƯỢNG TỪ THƯ VIỆN
+# ==============================
+
+from vex import Ports, Bumper, Touchled
+from random import randint
+import sys
 
 
 # KHỞI TẠO CÁC BỘ PHẬN ROBOT
@@ -16,11 +21,26 @@ bumper = Bumper(Ports.PORT5)
 touch_led = Touchled(Ports.PORT10)
 
 
-# Học sinh sẽ phải lập trình cho hàm operate() sau đây để thực hiện yêu cầu đề bài
+# ĐỊNH NGHĨA CÁC HÀM
+# ==================
+
+# Học sinh sẽ phải lập trình cho hàm operate() sau đây
+# để thực hiện yêu cầu đề bài
 def operate():
-    ...
+    # Nếu bumper được bấm
+    if bumper.pressing():
+        # Bật đèn LED màu ngẫu nhiên
+        touch_led.on_hue(randint(1, 10))
+
+        # Đợi trong 1 giây
+        sys.sleep(1)
+
+        # Tắt đèn LED
+        touch_led.off()
 
 
-# Chương trình chính
+# CHƯƠNG TRÌNH CHÍNH
+# ==================
+
 while True:
     operate()
