@@ -8,7 +8,7 @@ Nếu bumper không được nhấn thì đèn TouchLED sẽ bị tắt.
 # NHẬP CÁC ĐỐI TƯỢNG TỪ THƯ VIỆN
 # ==============================
 
-from vex import Ports, Bumper, Touchled
+from vex import Ports, Bumper, Touchled, ColorHue
 from random import randint
 import sys
 
@@ -30,7 +30,7 @@ def operate():
     # Nếu bumper được bấm
     if bumper.pressing():
         # Bật đèn LED màu ngẫu nhiên
-        touch_led.on_hue(randint(1, 10))
+        touch_led.on_hue(randint(ColorHue.RED, ColorHue.WHITE))
 
         # Đợi trong 1 giây
         sys.sleep(1)
