@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+
+python3 -m pip install --upgrade PEP517 PIP SetUpTools Wheel
+
+python3 -m pip install --upgrade --user \
+    https://GitHub.com/VEX-Robotics-AI/VEX-Py/archive/main.zip
