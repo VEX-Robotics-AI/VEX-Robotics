@@ -10,7 +10,8 @@
   },
 
   "python.analysis.diagnosticSeverityOverrides": {
-    "reportMissingImports": "none"
+    "reportMissingImports": "none",
+    "reportUndefinedVariables": "none"
   },
 
   "python.linting.enabled": true,

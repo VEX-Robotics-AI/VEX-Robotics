@@ -2,31 +2,41 @@
 
 
 # flake8: noqa
-# pylint: disable=unused-import
+
+# pylint: disable=import-error,pointless-statement,redefined-builtin,reimported
+# pylint: disable=unused-import,wrong-import-position
 
 
 # VEX module
 # robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacevex.html
 # =======================================================================
 from vex import (Device,
+
                  Brain, BrainButton, BrainLcd, BrainSound, NoteType,
+
                  Ports,
+
                  Controller, ControllerAxis, ControllerButton,
+
                  Motor,
                  BrakeType,
                  DirectionType, FORWARD, REVERSE,
                  TorqueUnits,
                  TurnType, LEFT, RIGHT,
                  VelocityUnits,
+
                  Bumper,
                  Colorsensor, ColorHue,
                  Gyro, GyroCalibrationType,
                  Sonar,
                  Touchled, FadeType,
+
                  TimeUnits, SECONDS, wait,
+
                  PERCENT,
                  DistanceUnits, MM, INCHES,
                  RotationUnits, DEGREES, TURNS,
+
                  INT29_MAX)
 
 
