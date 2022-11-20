@@ -2,32 +2,42 @@
 
 
 # flake8: noqa
-# pylint: disable=unused-import
+# pylint: disable=import-error,unused-import
 
 
-from vex import (
-    Brain, SoundType,
-    Ports,
-    Inertial,
-    AxisType,
-    OrientationType,
-    Bumper,
-    ColorSensor,
-    Optical, LedStateType, GestureType,
-    Distance, ObjectSizeType,
-    Sonar,
-    Controller,
-    Gyro, GyroCalibrationType,
-    Motor,
-    BrakeType, COAST, BRAKE, HOLD,
-    DirectionType, FORWARD, REVERSE,
-    TorqueUnits,
-    TurnType, LEFT, RIGHT,
-    VelocityUnits,
-    Touchled, FadeType,
-    TimeUnits, SECONDS, MSEC, wait,
-    DistanceUnits, MM, INCHES,
-    CurrentUnits,
-    PERCENT,
-    RotationUnits, DEGREES, TURNS,
-)
+from vex import (Brain, SoundType,
+
+                 Ports,
+
+                 Controller,
+
+                 Inertial,
+                 AxisType, XAXIS, YAXIS, ZAXIS,
+                 OrientationType, PITCH, ROLL, YAW,
+
+                 Motor,
+                 BrakeType, COAST, BRAKE, HOLD,
+                 CurrentUnits,
+                 DirectionType, FORWARD, REVERSE,
+                 TorqueUnits,
+                 TurnType, LEFT, RIGHT,
+                 VelocityUnits, RPM, DPS,
+
+                 Bumper,
+                 ColorSensor,
+                 Distance, ObjectSizeType,
+                 Gyro, GyroCalibrationType,
+                 Optical, LedStateType, GestureType,
+                 Sonar,
+                 Touchled, FadeType,
+                 Vision, VisionObject,
+
+                 TimeUnits, SECONDS, MSEC, wait,
+
+                 PERCENT,
+                 RotationUnits, DEGREES, TURNS,
+                 DistanceUnits, MM, INCHES,
+
+                 MotorGroup, DriveTrain, SmartDrive)
+
+from random import randint
