@@ -2,6 +2,11 @@ mccabe:
   disable:
     - MC0001
 
+pyflakes:
+  disable:
+    - F401
+    - F811
+
 pylint:
   disable:
     - chained-comparison
