@@ -5,3 +5,4 @@ mccabe:
 pylint:
   disable:
     - chained-comparison
+    - useless-suppression
