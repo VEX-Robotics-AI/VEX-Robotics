@@ -72,18 +72,19 @@ from timer import Timer
 
 
 # SYS module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacesys.html
-# =======================================================================
-from sys import (sleep,
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacesys.html
+# =====================================================================
+from sys import (clock,
+                 maxint,
+                 sleep,
+                 run_in_thread,
+                 wait_for,
                  exit,
                  gc,
                  getb,
                  heap,
                  putb,
-                 run_in_thread, thread_id,
-                 clock,
-                 wait_for,
-                 maxint)
+                 thread_id)
 
 
 # MATH module
