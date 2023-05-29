@@ -97,9 +97,9 @@ from math import (fabs, ceil, floor,
 
 
 # RANDOM module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacerandom.html
-# ==========================================================================
-from random import randint, random
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacerandom.html
+# ========================================================================
+from random import randint, random, choice
 
 
 # __BI module
@@ -143,8 +143,8 @@ ismain  # noqa: F821
 
 
 # BUILT-INS module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacebuilt__ins.html
-# ==============================================================================
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacebuilt__ins.html
+# ============================================================================
 # (NOT APPLICABLE)
 
 
