@@ -103,8 +103,8 @@ from random import randint, random
 
 
 # __BI module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespace____bi.html
-# ==========================================================================
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespace____bi.html
+# ========================================================================
 
 # classes
 # -------
@@ -120,16 +120,23 @@ AssertionError
 abs
 float
 round
+divmod
+max
+min
 chr
 int
 str
+dir
 filter
+globals
 id
 len
+locals
 map
 ord
 pow
 range
+sum
 type
 # pylint: disable=undefined-variable
 ismain  # noqa: F821
