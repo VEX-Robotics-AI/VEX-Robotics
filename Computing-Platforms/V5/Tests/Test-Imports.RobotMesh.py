@@ -149,30 +149,24 @@ ismain  # noqa: F821
 
 
 # DICT module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacedict.html
-# ========================================================================
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacedict.html
+# ======================================================================
 from dict import _Autobox, clear, keys, has_key, values, update  # noqa: E402
 
 
 # FUNC module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacefunc.html
-# ========================================================================
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacefunc.html
+# ======================================================================
 # from func import co_names, co_consts
 
 
 # LIST module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacelist.html
-# ========================================================================
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacelist.html
+# ======================================================================
 from list import _Autobox, append, count, extend, index, insert, pop, remove  # noqa: E402,E501
 
 
-# MARGIN module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacemargin.html
-# ==========================================================================
-from margin import value, set  # noqa: E402
-
-
 # STRING module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacestring.html
-# ==========================================================================
-from string import _Autobox, atoi, join  # noqa: E402
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacestring.html
+# ========================================================================
+from string import _Autobox, atoi, count, find, join, digits, hexdigits, letters  # noqa: E402,E501
