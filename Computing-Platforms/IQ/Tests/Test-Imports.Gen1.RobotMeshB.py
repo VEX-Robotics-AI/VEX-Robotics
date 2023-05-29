@@ -130,7 +130,8 @@ ord
 pow
 range
 type
-# ismain
+# pylint: disable=undefined-variable
+ismain  # noqa: F821
 
 
 # BUILT-INS module
