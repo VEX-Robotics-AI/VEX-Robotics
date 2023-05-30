@@ -38,7 +38,11 @@ from vex import (Device,
                  # RotationUnits, DEGREES, TURNS,
 
                  # INT29_MAX
-                 )
+
+                 RUMBLE_LONG, RUMBLE_PULSE, RUMBLE_SHORT,
+                 STATUS_BAR_HEIGHT, SYSTEM_DISPLAY_HEIGHT, SYSTEM_DISPLAY_WIDTH,  # noqa: E501
+
+                 staticmethod)
 
 
 # VISION module
