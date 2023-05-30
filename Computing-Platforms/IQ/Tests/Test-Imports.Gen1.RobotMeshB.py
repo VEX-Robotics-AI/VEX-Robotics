@@ -89,11 +89,19 @@ from sys import (clock,
 # MATH module
 # robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacemath.html
 # ========================================================================
-from math import (fabs, ceil, floor,
-                  acos, asin, atan, atan2, cos, sin, tan,
-                  degrees, radians, pi,
-                  e, log,
-                  sqrt)
+from math import (
+    # number theoretic and representation functions
+    ceil, fabs, floor,
+
+    # trigonometric functions
+    acos, asin, atan, atan2, cos, sin, tan,
+
+    # angular conversion
+    degrees, radians, pi,
+
+    # power and logarithmic functions
+    e, log, sqrt,
+)
 
 
 # RANDOM module

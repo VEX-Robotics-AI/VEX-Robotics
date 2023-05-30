@@ -88,13 +88,28 @@ from sys import (clock,
 
 
 # MATH module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacemath.html
-# ========================================================================
-from math import (fabs, ceil, floor,
-                  acos, asin, atan, atan2, cos, sin, tan,
-                  degrees, radians, pi,
-                  e, log,
-                  sqrt)
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacemath.html
+# ======================================================================
+from math import (
+    # number theoretic and representation functions
+    ceil, copysign, fabs, factorial, floor, fmod, frexp, fsum, isinf, isnan,
+    ldexp, modf, trunc,
+
+    # trigonometric functions
+    acos, asin, atan, atan2, cos, hypot, sin, tan,
+
+    # angular conversion
+    degrees, radians, pi,
+
+    # hyperbolic functions
+    acosh, asinh, atanh, cosh, sinh, tanh,
+
+    # power and logarithmic functions
+    e, exp, log, log1p, log10, pow, sqrt,
+
+    # misc/other
+    is_prime,
+)
 
 
 # RANDOM module
