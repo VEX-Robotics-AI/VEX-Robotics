@@ -6,6 +6,7 @@ pyflakes:
   disable:
     - F401
     - F811
+    - F821
 
 pylint:
   disable:
