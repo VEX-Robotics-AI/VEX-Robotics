@@ -54,19 +54,19 @@ from vex import (Device,
 # MOTOR_GROUP module
 # robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacemotor__group.html
 # ================================================================================
-# from motor_group import MotorGroup
+from motor_group import MotorGroup
 
 
 # DRIVETRAIN module
 # robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacedrivetrain.html
 # ==============================================================================
-# from drivetrain import Drivetrain
+from drivetrain import Drivetrain
 
 
 # SMARTDRIVE module
 # robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacesmartdrive.html
 # ==============================================================================
-# from smartdrive import Smartdrive
+from smartdrive import Smartdrive
 
 
 # TIMER module
