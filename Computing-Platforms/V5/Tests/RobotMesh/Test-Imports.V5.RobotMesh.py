@@ -21,7 +21,7 @@ from vex import (Device,
                  # Motor,
                  # BrakeType,
                  # DirectionType, FORWARD, REVERSE,
-                 # TorqueUnits,
+                 TorqueUnits,
                  # TurnType, LEFT, RIGHT,
                  # VelocityUnits,
 
@@ -31,10 +31,11 @@ from vex import (Device,
                  # Sonar,
                  # Touchled, FadeType,
 
-                 # TimeUnits, SECONDS, wait,
+                 TimeUnits, SECONDS, wait, wait_for,
 
                  # PERCENT,
-                 # DistanceUnits, MM, INCHES,
+                 AnalogUnits,
+                 DistanceUnits, MM, INCHES,
                  # RotationUnits, DEGREES, TURNS,
 
                  # INT29_MAX
