@@ -8,8 +8,8 @@
 
 
 # VEX module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacevex.html
-# =======================================================================
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacevex.html
+# =====================================================================
 from vex import (Device,
 
                  # Brain, BrainButton, BrainLcd, BrainSound, NoteType,
@@ -18,7 +18,7 @@ from vex import (Device,
 
                  # Controller, ControllerAxis, ControllerButton,
 
-                 # Motor,
+                 Motor,
                  # BrakeType,
                  # DirectionType, FORWARD, REVERSE,
                  TorqueUnits,
@@ -46,33 +46,27 @@ from vex import (Device,
                  staticmethod)
 
 
-# VISION module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacevision.html
-# ==========================================================================
-# from vision import Vision, VisionObject
-
-
 # MOTOR_GROUP module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacemotor__group.html
-# ================================================================================
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacemotor__group.html
+# ==============================================================================
 from motor_group import MotorGroup
 
 
 # DRIVETRAIN module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacedrivetrain.html
-# ==============================================================================
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacedrivetrain.html
+# ============================================================================
 from drivetrain import Drivetrain
 
 
 # SMARTDRIVE module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacesmartdrive.html
-# ==============================================================================
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacesmartdrive.html
+# ============================================================================
 from smartdrive import Smartdrive
 
 
 # TIMER module
-# robotmesh.com/studio/content/docs/vexiq-python_b/html/namespacetimer.html
-# =========================================================================
+# robotmesh.com/studio/content/docs/vexv5-python/html/namespacetimer.html
+# =======================================================================
 from timer import Timer
 
 
