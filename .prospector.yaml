@@ -11,4 +11,5 @@ pyflakes:
 pylint:
   disable:
     - chained-comparison
+    - django-not-configured  # TODO: check why this warning keeps coming up
     - useless-suppression
