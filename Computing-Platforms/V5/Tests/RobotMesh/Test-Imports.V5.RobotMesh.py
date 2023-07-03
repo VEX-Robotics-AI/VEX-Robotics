@@ -3,6 +3,8 @@
 
 # flake8: noqa: F401
 
+# pylama: ignore=W0611
+
 # pylint: disable=import-error,pointless-statement,redefined-builtin,reimported
 # pylint: disable=unused-import,wrong-import-position
 
