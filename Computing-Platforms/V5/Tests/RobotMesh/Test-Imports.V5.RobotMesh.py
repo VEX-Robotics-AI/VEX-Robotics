@@ -10,7 +10,7 @@
 # VEX module
 # robotmesh.com/studio/content/docs/vexv5-python/html/namespacevex.html
 # =====================================================================
-from vex import (Device,
+from vex import (Device, TriDevice, V5DeviceType,
 
                  # Brain, BrainButton, BrainLcd, BrainSound, NoteType,
 
