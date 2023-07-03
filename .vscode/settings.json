@@ -11,7 +11,7 @@
 
   "python.analysis.diagnosticSeverityOverrides": {
     "reportMissingImports": "none",
-    "reportUndefinedVariables": "none"
+    "reportUndefinedVariables": "none",
   },
 
   "python.linting.enabled": true,
@@ -40,13 +40,13 @@
 
   "python.linting.prospectorEnabled": true,
 
-  "python.linting.pylamaEnabled": false,   // TODO: check
+  "python.linting.pylamaEnabled": true,
   "python.linting.pylamaArgs": [
-    "--ignore C901"
+    "--ignore=C901",
   ],
 
-  "python.linting.banditEnabled": false,   // TODO: check
+  "python.linting.banditEnabled": true,
   "python.linting.banditArgs": [
-    "--skip B311"
+    "--skip=B311",
   ]
 }
