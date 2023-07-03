@@ -14,8 +14,8 @@ brain = Brain()
 motor = Motor(Ports.PORT1)
 
 
-motor_installed = motor.motor_installed()
-# assert isinstance(motor_installed, int)
+motor_installed = motor.installed()
+# assert isinstance(motor_installed, bool)
 
 brain.screen.print_line(1, motor_installed)
 
