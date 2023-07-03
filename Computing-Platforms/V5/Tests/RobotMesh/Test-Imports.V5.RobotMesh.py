@@ -31,7 +31,7 @@ from vex import (Device,
                  # Sonar,
                  # Touchled, FadeType,
 
-                 TimeUnits, SECONDS, wait, wait_for,
+                 TimeUnits, SECONDS, wait,  # wait_for,
 
                  # PERCENT,
                  AnalogUnits,
