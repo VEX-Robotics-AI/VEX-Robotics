@@ -6,47 +6,11 @@
     "**/.mypy_cache": true,
     "**/*.pyc": {"when": "$(basename).py"},
     "**/__pycache__": true,
-    "**/.ropeproject": true,
+    "**/.ropeproject": true
   },
 
   "python.analysis.diagnosticSeverityOverrides": {
     "reportMissingImports": "none",
-    "reportUndefinedVariables": "none",
-  },
-
-  "python.linting.enabled": true,
-
-  "python.linting.pylintEnabled": true,
-  "python.linting.pylintArgs": [
-    "--disable", "c-extension-no-member",
-    "--disable", "global-statement",
-    "--disable", "invalid-name",
-    "--disable", "missing-class-docstring",
-    "--disable", "missing-function-docstring",
-    "--disable", "missing-module-docstring",
-    "--disable", "no-member",
-    "--disable", "no-name-in-module",
-    "--disable", "too-many-instance-attributes",
-    "--disable", "wrong-import-order",
-  ],
-
-  "python.linting.flake8Enabled": true,
-
-  "python.linting.mypyEnabled": false,
-
-  "python.linting.pydocstyleEnabled": false,
-
-  "python.linting.pycodestyleEnabled": true,
-
-  "python.linting.prospectorEnabled": true,
-
-  "python.linting.pylamaEnabled": true,
-  "python.linting.pylamaArgs": [
-    "--ignore=C901",
-  ],
-
-  "python.linting.banditEnabled": true,
-  "python.linting.banditArgs": [
-    "--skip=B311",
-  ]
+    "reportUndefinedVariables": "none"
+  }
 }
